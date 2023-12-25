@@ -8,6 +8,8 @@ import 'package:talker_bloc_logger/talker_bloc_logger.dart';
 import 'package:talker_dio_logger/talker_dio_logger.dart';
 import 'package:talker_flutter/talker_flutter.dart';
 
+import 'features/schedule/view/schedule_screen.dart';
+
 void main() {
   final Talker talker = TalkerFlutter.init();
   GetIt.I.registerSingleton(talker);
@@ -52,20 +54,7 @@ class BntuScheduleApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: SchedulePage(),
-    );
-  }
-}
-
-class SchedulePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return const SafeArea(
-      child: Scaffold(
-        body: Center(
-          child: Text('Страница Расписание'),
-        ),
-      ),
+      home: ScheduleScreen(),
     );
   }
 }
