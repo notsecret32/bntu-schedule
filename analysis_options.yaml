@@ -1,0 +1,57 @@
+include: package:lints/recommended.yaml
+
+analyzer:
+  strong-mode:
+    implicit-casts: false
+    implicit-dynamic: false
+  errors:
+    invalid_annotation_target: ignore
+  exclude:
+    - '**/*.g.dart'
+    - '**/*.mocks.dart'
+    - '**/*.freezed.dart'
+    - tools
+    - test/**/test_data.dart
+
+linter:
+  rules:
+    - always_declare_return_types
+    - avoid_catching_errors
+    - avoid_double_and_int_checks
+    - avoid_field_initializers_in_const_classes
+    - avoid_implementing_value_types
+    - avoid_js_rounded_ints
+    - avoid_positional_boolean_parameters
+    - avoid_private_typedef_functions
+    - avoid_redundant_argument_values
+    - avoid_relative_lib_imports
+    - avoid_returning_null
+    - avoid_returning_null_for_future
+    - avoid_returning_this
+    - avoid_slow_async_io
+    - avoid_unused_constructor_parameters
+    - cancel_subscriptions
+    - close_sinks
+    - directives_ordering
+    - leading_newlines_in_multiline_strings
+    - literal_only_boolean_expressions
+    - missing_whitespace_between_adjacent_strings
+    - no_runtimeType_toString
+    - prefer_final_locals
+    - prefer_const_declarations
+    - prefer_const_constructors_in_immutables
+    - prefer_const_constructors
+    - always_specify_types
+    - prefer_final_in_for_each
+    - prefer_foreach
+    - prefer_if_elements_to_conditional_expressions
+    - prefer_int_literals
+    - prefer_single_quotes
+    - require_trailing_commas
+    - sort_constructors_first
+    - test_types_in_equals
+    - throw_in_finally
+    - unnecessary_lambdas
+    - unnecessary_null_aware_assignments
+    - unnecessary_statements
+    - unsafe_html
