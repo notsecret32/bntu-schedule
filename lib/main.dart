@@ -9,9 +9,11 @@ import 'package:talker_bloc_logger/talker_bloc_logger.dart';
 import 'package:talker_dio_logger/talker_dio_logger.dart';
 import 'package:talker_flutter/talker_flutter.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   final Talker talker = TalkerFlutter.init();
   GetIt.I.registerSingleton(talker);
+  GetIt.I<Talker>().debug('Talker started...');
 
   final Dio dio = Dio();
   dio.interceptors.add(
