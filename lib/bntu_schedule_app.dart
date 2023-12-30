@@ -1,4 +1,5 @@
 import 'package:bntu_schedule/router/router.dart';
+import 'package:bntu_schedule/ui/ui.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:talker_flutter/talker_flutter.dart';
@@ -17,12 +18,7 @@ class _BntuScheduleAppState extends State<BntuScheduleApp> {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       title: 'БНТУ Расписание',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color.fromRGBO(71, 135, 232, 0),
-        ),
-        useMaterial3: true,
-      ),
+      theme: themeData,
       routerConfig: _appRouter.config(
         navigatorObservers: () => <NavigatorObserver>[
           TalkerRouteObserver(GetIt.I<Talker>()),

@@ -1,5 +1,10 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:bntu_schedule/features/exam/view/exam_screen.dart';
+import 'package:bntu_schedule/features/home/home.dart';
+import 'package:bntu_schedule/features/news/news.dart';
 import 'package:bntu_schedule/features/schedule/view/schedule_screen.dart';
+import 'package:bntu_schedule/features/settings/settings.dart';
+import 'package:bntu_schedule/features/teacher/teacher.dart';
 
 part 'router.gr.dart';
 
@@ -7,6 +12,31 @@ part 'router.gr.dart';
 class AppRouter extends _$AppRouter {
   @override
   List<AutoRoute> get routes => <AutoRoute>[
-        AutoRoute(page: ScheduleRoute.page, path: '/'),
+        AutoRoute(
+          page: HomeRoute.page,
+          path: '/',
+          children: <AutoRoute>[
+            AutoRoute(
+              page: ScheduleRoute.page,
+              path: 'schedule',
+            ),
+            AutoRoute(
+              page: TeacherRoute.page,
+              path: 'teacher',
+            ),
+            AutoRoute(
+              page: ExamRoute.page,
+              path: 'exam',
+            ),
+            AutoRoute(
+              page: NewsRoute.page,
+              path: 'news',
+            ),
+          ],
+        ),
+        AutoRoute(
+          page: SettingsRoute.page,
+          path: '/settings',
+        ),
       ];
 }
