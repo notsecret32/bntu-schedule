@@ -1,7 +1,16 @@
 {
-	"editor.codeActionsOnSave": {
-		"source.fixAll": "explicit",
-		"source.organizeImports": "explicit"
-	},
-	"cSpell.words": ["BNTU", "cupertino", "RGBO", "Беларускі", "БНТУ"]
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    "source.organizeImports": "explicit"
+  },
+  "cSpell.words": [
+    "BNTU",
+    "cupertino",
+    "datetime",
+    "RGBO",
+    "Беларускі",
+    "БНТУ",
+    "Бородуля",
+    "Практ"
+  ]
 }

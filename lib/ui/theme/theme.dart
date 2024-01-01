@@ -1,6 +1,5 @@
+import 'package:bntu_schedule/ui/theme/colors.dart';
 import 'package:flutter/material.dart';
-
-const Color primaryColor = Color(0xFF4787E8);
 
 final ThemeData themeData = ThemeData(
   useMaterial3: true,
@@ -12,16 +11,38 @@ final ThemeData themeData = ThemeData(
     backgroundColor: primaryColor,
   ),
   textTheme: const TextTheme(
-    titleMedium: TextStyle(
+    // Titles like: Schedule
+    headlineLarge: TextStyle(
       fontFamily: 'Montserrat',
       fontSize: 30,
       fontWeight: FontWeight.w600,
       color: Colors.white,
     ),
+    // Container labels like: Lesson name
+    labelLarge: TextStyle(
+      fontFamily: 'Montserrat',
+      fontSize: 24,
+      fontWeight: FontWeight.bold,
+    ),
+    // Container labels like: Month (December, November and etc.)
     labelMedium: TextStyle(
       fontFamily: 'Montserrat',
-      fontSize: 16,
+      fontSize: 24,
+      fontWeight: FontWeight.w500,
+    ),
+    // For text like: Lesson name, week day, week number and etc.
+    bodyMedium: TextStyle(
+      fontFamily: 'Montserrat',
+      fontSize: 18,
       fontWeight: FontWeight.normal,
     ),
+    // For text like: 1st week, 2nd week, lesson time and etc.
+    bodySmall: TextStyle(
+      fontFamily: 'Montserrat',
+      fontSize: 16,
+      fontWeight: FontWeight.w300,
+      color: Color(0xFF747474),
+    ),
   ),
+  shadowColor: shadowColor,
 );

@@ -33,7 +33,7 @@ class HomeScreen extends StatelessWidget {
               ),
               title: Text(
                 S.of(context).schedule,
-                style: theme.textTheme.titleMedium,
+                style: theme.textTheme.headlineLarge,
               ),
             ),
             body: child,

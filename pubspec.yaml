@@ -1,5 +1,6 @@
 name: bntu_schedule
-description: 'The mobile part of the application for viewing the schedule of couples at the
+description:
+  'The mobile part of the application for viewing the schedule of couples at the
   BNTU University.'
 version: 0.0.1+1
 publish_to: 'none'
@@ -24,6 +25,7 @@ dependencies:
   auto_route: ^7.8.4
   get_it: ^7.6.4
   equatable: ^2.0.5
+  week_of_year: ^2.2.0
 
 dev_dependencies:
   flutter_test:

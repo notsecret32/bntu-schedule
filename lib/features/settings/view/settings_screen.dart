@@ -20,7 +20,7 @@ class SettingsScreen extends StatelessWidget {
           ),
           title: Text(
             S.of(context).settings,
-            style: theme.textTheme.titleMedium,
+            style: theme.textTheme.headlineLarge,
           ),
         ),
         body: Center(
