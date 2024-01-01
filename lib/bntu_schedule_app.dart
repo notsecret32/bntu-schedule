@@ -1,8 +1,11 @@
 import 'package:bntu_schedule/router/router.dart';
 import 'package:bntu_schedule/ui/ui.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get_it/get_it.dart';
 import 'package:talker_flutter/talker_flutter.dart';
+
+import 'generated/l10n.dart';
 
 class BntuScheduleApp extends StatefulWidget {
   const BntuScheduleApp({super.key});
@@ -24,6 +27,13 @@ class _BntuScheduleAppState extends State<BntuScheduleApp> {
           TalkerRouteObserver(GetIt.I<Talker>()),
         ],
       ),
+      localizationsDelegates: const <LocalizationsDelegate<dynamic>>[
+        S.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: S.delegate.supportedLocales,
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:bntu_schedule/generated/l10n.dart';
 import 'package:bntu_schedule/router/router.dart';
 import 'package:flutter/material.dart';
 
@@ -31,7 +32,7 @@ class HomeScreen extends StatelessWidget {
                 },
               ),
               title: Text(
-                'Расписание',
+                S.of(context).schedule,
                 style: theme.textTheme.titleMedium,
               ),
             ),
@@ -43,21 +44,21 @@ class HomeScreen extends StatelessWidget {
               currentIndex: tabsRouter.activeIndex,
               onTap: (int index) => _openPage(index, tabsRouter),
               items: <BottomNavigationBarItem>[
-                const BottomNavigationBarItem(
-                  icon: Icon(Icons.schedule),
-                  label: 'Расписание',
+                BottomNavigationBarItem(
+                  icon: const Icon(Icons.schedule),
+                  label: S.of(context).schedule,
                 ),
-                const BottomNavigationBarItem(
-                  icon: Icon(Icons.people),
-                  label: 'Преподаватели',
+                BottomNavigationBarItem(
+                  icon: const Icon(Icons.people),
+                  label: S.of(context).teacher,
                 ),
-                const BottomNavigationBarItem(
-                  icon: Icon(Icons.assignment_sharp),
-                  label: 'Экзамены',
+                BottomNavigationBarItem(
+                  icon: const Icon(Icons.assignment_sharp),
+                  label: S.of(context).exams,
                 ),
-                const BottomNavigationBarItem(
-                  icon: Icon(Icons.newspaper),
-                  label: 'Новости',
+                BottomNavigationBarItem(
+                  icon: const Icon(Icons.newspaper),
+                  label: S.of(context).news,
                 ),
               ],
             ),

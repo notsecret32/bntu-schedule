@@ -18,5 +18,10 @@ final ThemeData themeData = ThemeData(
       fontWeight: FontWeight.w600,
       color: Colors.white,
     ),
+    labelMedium: TextStyle(
+      fontFamily: 'Montserrat',
+      fontSize: 16,
+      fontWeight: FontWeight.normal,
+    ),
   ),
 );

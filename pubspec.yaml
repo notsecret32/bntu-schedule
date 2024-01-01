@@ -1,5 +1,6 @@
 name: bntu_schedule
-description: 'The mobile part of the application for viewing the schedule of couples at the BNTU University.'
+description: 'The mobile part of the application for viewing the schedule of couples at the
+  BNTU University.'
 version: 0.0.1+1
 publish_to: 'none'
 
@@ -8,6 +9,8 @@ environment:
 
 dependencies:
   flutter:
+    sdk: flutter
+  flutter_localizations:
     sdk: flutter
   cupertino_icons: ^1.0.2
   flutter_svg: ^2.0.9
@@ -52,3 +55,5 @@ flutter:
         - asset: assets/fonts/Montserrat-SemiBold.ttf
         - asset: assets/fonts/Montserrat-Bold.ttf
           style: normal
+flutter_intl:
+  enabled: true

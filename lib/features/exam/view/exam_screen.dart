@@ -1,13 +1,14 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:bntu_schedule/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
 class ExamScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
-        child: Text('Страница Экзаменов'),
+        child: Text(S.of(context).exams),
       ),
     );
   }
