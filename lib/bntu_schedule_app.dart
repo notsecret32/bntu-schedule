@@ -20,6 +20,7 @@ class _BntuScheduleAppState extends State<BntuScheduleApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
       title: 'БНТУ Расписание',
       theme: themeData,
       routerConfig: _appRouter.config(
