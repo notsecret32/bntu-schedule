@@ -26,6 +26,11 @@ dependencies:
   get_it: ^7.6.4
   equatable: ^2.0.5
   week_of_year: ^2.2.0
+  firebase_core: ^2.24.2
+  flutter_dotenv: ^5.1.0
+  cloud_firestore: ^4.14.0
+  firebase_auth: ^4.16.0
+  firebase_app_check: ^0.2.1+8
 
 dev_dependencies:
   flutter_test:
@@ -57,5 +62,8 @@ flutter:
         - asset: assets/fonts/Montserrat-SemiBold.ttf
         - asset: assets/fonts/Montserrat-Bold.ttf
           style: normal
+  assets:
+    - .env
+
 flutter_intl:
   enabled: true
