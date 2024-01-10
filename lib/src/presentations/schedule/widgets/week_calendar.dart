@@ -37,7 +37,7 @@ class _WeekCalendarState extends State<WeekCalendar> {
                   style: theme.textTheme.labelMedium,
                 ),
                 Text(
-                  _getParityOfTheWeek().toString(),
+                  'Неделя №${_getParityOfTheWeek()}',
                   style: theme.textTheme.bodySmall,
                 ),
               ],
@@ -60,14 +60,6 @@ class _WeekCalendarState extends State<WeekCalendar> {
             onSwipe: (int weekOfYear) => setState(() {
               _weekOfYear = weekOfYear;
             }),
-            weekDays: <String>[
-              'ПН',
-              'ВТ',
-              'ВР',
-              'ЧТ',
-              'ПТ',
-              'СБ',
-            ],
           ),
         ],
       ),
@@ -79,15 +71,13 @@ class _WeekCalendarState extends State<WeekCalendar> {
   }
 
   String _getMonthName() {
-    final DateTime firstDayOfYear =
-        DateTime(DateTime.now().year); // Получаем первый день текущего года
+    final DateTime firstDayOfYear = DateTime(DateTime.now().year);
 
     final Duration daysFromStartOfYear = Duration(
       days: (_weekOfYear - 1) * 7,
-    ); // Вычисляем количество дней от начала года
+    );
 
-    final DateTime targetDate = firstDayOfYear
-        .add(daysFromStartOfYear); // Получаем целевую дату по номеру недели
+    final DateTime targetDate = firstDayOfYear.add(daysFromStartOfYear);
 
     return getMonth(context, targetDate.month);
   }
