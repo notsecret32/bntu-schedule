@@ -31,7 +31,7 @@ class HomePage extends StatelessWidget {
                 },
               ),
               title: Text(
-                'Страница Расписание',
+                'Расписание',
                 style: theme.textTheme.headlineLarge,
               ),
             ),
@@ -45,19 +45,19 @@ class HomePage extends StatelessWidget {
               items: <BottomNavigationBarItem>[
                 const BottomNavigationBarItem(
                   icon: Icon(Icons.schedule),
-                  label: 'Страница Расписание',
+                  label: 'Расписание',
                 ),
                 const BottomNavigationBarItem(
                   icon: Icon(Icons.people),
-                  label: 'Страница Преподаватели',
+                  label: 'Преподаватели',
                 ),
                 const BottomNavigationBarItem(
                   icon: Icon(Icons.assignment_sharp),
-                  label: 'Страница Экзамены',
+                  label: 'Экзамены',
                 ),
                 const BottomNavigationBarItem(
                   icon: Icon(Icons.newspaper),
-                  label: 'Страница Новости',
+                  label: 'Новости',
                 ),
               ],
             ),

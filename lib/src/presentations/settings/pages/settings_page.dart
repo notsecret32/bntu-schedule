@@ -18,7 +18,7 @@ class SettingsPage extends StatelessWidget {
             onPressed: appRouter.pop,
           ),
           title: Text(
-            'Страница Настройки',
+            'Настройки',
             style: theme.textTheme.headlineLarge,
           ),
         ),
