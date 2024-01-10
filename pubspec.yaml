@@ -31,9 +31,12 @@ dependencies:
   cloud_firestore: ^4.14.0
   firebase_auth: ^4.16.0
   firebase_app_check: ^0.2.1+8
-  dartz: 0.10.1
+  dartz: ^0.10.1
   internet_connection_checker: ^1.0.0+1
   hive: ^2.2.3
+  bloc: ^8.1.2
+  nested: ^1.0.0
+  shared_preferences: ^2.2.2
 
 dev_dependencies:
   flutter_test:
