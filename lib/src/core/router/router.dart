@@ -3,6 +3,7 @@ import 'package:bntu_schedule/src/presentations/exam/pages/exam_page.dart';
 import 'package:bntu_schedule/src/presentations/home/pages/home_page.dart';
 import 'package:bntu_schedule/src/presentations/news/pages/news_page.dart';
 import 'package:bntu_schedule/src/presentations/schedule/pages/schedule_page.dart';
+import 'package:bntu_schedule/src/presentations/select_group/pages/select_group_page.dart';
 import 'package:bntu_schedule/src/presentations/settings/pages/settings_page.dart';
 import 'package:bntu_schedule/src/presentations/teacher/pages/teacher_page.dart';
 
@@ -37,6 +38,10 @@ class AppRouter extends _$AppRouter {
         AutoRoute(
           page: SettingsRoute.page,
           path: '/settings',
+        ),
+        AutoRoute(
+          page: SelectGroupRoute.page,
+          path: '/select_group',
         ),
       ];
 }
