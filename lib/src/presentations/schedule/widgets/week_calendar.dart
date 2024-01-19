@@ -4,6 +4,11 @@ import 'package:bntu_schedule/src/presentations/schedule/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:week_of_year/week_of_year.dart';
 
+/// A composite widget that consists of two rows.
+///
+/// The first row contains the name of the month and the type of week.
+///
+/// In the second row there is a widget to select week day by week.
 class WeekCalendar extends StatefulWidget {
   const WeekCalendar({
     super.key,
@@ -14,19 +19,23 @@ class WeekCalendar extends StatefulWidget {
 }
 
 class _WeekCalendarState extends State<WeekCalendar> {
+  /// Selected day of the week.
   DateTime _selectedDay = DateTime.now();
+
+  /// The number of the week in the year.
   int _weekOfYear = DateTime.now().weekOfYear;
 
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    return BaseContainer(
+    return CustomContainer(
       padding: const EdgeInsets.symmetric(
         horizontal: 16,
         vertical: 8,
       ),
       child: Column(
         children: <Widget>[
+          /// ========== [Month + Week Type] ==========
           Container(
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.end,
@@ -43,9 +52,13 @@ class _WeekCalendarState extends State<WeekCalendar> {
               ],
             ),
           ),
+
+          /// ========== [Spacer] ==========
           const SizedBox(
             height: 8,
           ),
+
+          /// ========== [WeeklyDatePicker] ==========
           WeeklyDatePicker(
             selectedDay: _selectedDay,
             backgroundColor: theme.primaryColor,
@@ -66,19 +79,27 @@ class _WeekCalendarState extends State<WeekCalendar> {
     );
   }
 
+  /// Returns the type of week depending on whether it is even or odd.
   int _getParityOfTheWeek() {
     return _weekOfYear % 2 == 0 ? 2 : 1;
   }
 
+  /// Returns the name of the month depending on the week number.
   String _getMonthName() {
+    // Get the `firstDayOfYear`.
     final DateTime firstDayOfYear = DateTime(DateTime.now().year);
 
+    // Count the number of days from the beginning of the year
+    // to the selected week number.
     final Duration daysFromStartOfYear = Duration(
       days: (_weekOfYear - 1) * 7,
     );
 
+    // Calculates the current date by adding the number of days
+    // to the beginning of the year.
     final DateTime targetDate = firstDayOfYear.add(daysFromStartOfYear);
 
-    return getMonth(context, targetDate.month);
+    // Return the name of the month based on calculations.
+    return months[targetDate.month - 1];
   }
 }
