@@ -15,6 +15,12 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    AdminLoginRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const AdminLoginPage(),
+      );
+    },
     ExamRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -42,7 +48,7 @@ abstract class _$AppRouter extends RootStackRouter {
     SelectGroupRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const SelectGroupPage(),
+        child: SelectGroupPage(),
       );
     },
     SettingsRoute.name: (routeData) {
@@ -58,6 +64,20 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
   };
+}
+
+/// generated route for
+/// [AdminLoginPage]
+class AdminLoginRoute extends PageRouteInfo<void> {
+  const AdminLoginRoute({List<PageRouteInfo>? children})
+      : super(
+          AdminLoginRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'AdminLoginRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
