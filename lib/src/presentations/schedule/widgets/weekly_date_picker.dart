@@ -1,8 +1,9 @@
-import 'package:bntu_schedule/src/core/utils/datetime_apis.dart';
+import 'package:bntu_schedule/src/core/utils/compare_dates.dart';
 import 'package:bntu_schedule/src/core/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:week_of_year/week_of_year.dart';
 
+/// Widget for selecting the day of the week in vertical scroll format.
 class WeeklyDatePicker extends StatefulWidget {
   const WeeklyDatePicker({
     super.key,
@@ -15,8 +16,9 @@ class WeeklyDatePicker extends StatefulWidget {
       'ЧТ',
       'ПТ',
       'СБ',
+      'ВС',
     ],
-    this.daysInWeek = 6,
+    this.daysInWeek = 7,
     required this.unselectedTextStyle,
     required this.selectedTextStyle,
     required this.backgroundColor,
@@ -26,6 +28,7 @@ class WeeklyDatePicker extends StatefulWidget {
           'weekdays must be of length $daysInWeek',
         );
 
+  ///
   final DateTime selectedDay;
   final List<String> weekDays;
   final int daysInWeek;
@@ -42,11 +45,16 @@ class WeeklyDatePicker extends StatefulWidget {
 }
 
 class _WeeklyDatePickerState extends State<WeeklyDatePicker> {
-  // About 100 years back in time should be sufficient for most users, 52 weeks * 100
-  final int _weekIndexOffset = 5200;
+  /// About 1 years back in time should be sufficient for most users, 52 weeks
+  final int _weekIndexOffset = 52;
 
+  /// The [PageController] of the weeks pages so that they can be changed.
   late final PageController _controller;
+
+  /// The initial selected day.
   late final DateTime _initialSelectedDay;
+
+  /// The number of the week in the year from the selected day.
   int _weekOfYear = 1;
 
   @override
@@ -92,7 +100,9 @@ class _WeeklyDatePickerState extends State<WeeklyDatePicker> {
     );
   }
 
-  // Builds a 5 day list of DateButtons
+  /// A method that builds a week depending on the number of days in a week.
+  ///
+  /// The number of days per week is specified in the `daysInWeek` parameter.
   List<Widget> _weekdays(int weekIndex) {
     final List<Widget> weekdays = <Widget>[];
 
@@ -102,9 +112,11 @@ class _WeeklyDatePickerState extends State<WeeklyDatePicker> {
       final DateTime dateTime = _initialSelectedDay.addDays(daysToAdd);
       weekdays.add(_dateButton(dateTime));
     }
+
     return weekdays;
   }
 
+  /// The method that builds the button that the widget consists of.
   Widget _dateButton(DateTime dateTime) {
     final String weekday = widget.weekDays[dateTime.weekday - 1];
     final bool isSelected = dateTime.isSameDateAs(widget.selectedDay);
@@ -123,13 +135,13 @@ class _WeeklyDatePickerState extends State<WeeklyDatePicker> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            ToggleText(
+            CustomToggleText(
               text: weekday,
               isActive: isSelected,
               activeTextStyle: widget.selectedTextStyle,
               inactiveTextStyle: widget.unselectedTextStyle,
             ),
-            ToggleText(
+            CustomToggleText(
               text: '${dateTime.day}',
               isActive: isSelected,
               activeTextStyle: widget.selectedTextStyle,

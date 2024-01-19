@@ -5,10 +5,8 @@ import 'package:flutter/material.dart';
 class ExamPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('Страница Экзамены'),
-      ),
+    return const Center(
+      child: Text('Страница Экзамены'),
     );
   }
 }

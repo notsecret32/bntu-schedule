@@ -1,9 +1,10 @@
 import 'package:bntu_schedule/src/config/firebase_options.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_app_check/firebase_app_check.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 
+/// Initializes the [Firebase] application.
+///
+/// This is also where the application and [Firebase] modules are configured.
 Future<void> initializeFirebaseApp() async {
   // App Initialization
   await Firebase.initializeApp(
@@ -17,7 +18,3 @@ Future<void> initializeFirebaseApp() async {
     appleProvider: AppleProvider.appAttest,
   );
 }
-
-final FirebaseAuth auth = FirebaseAuth.instance;
-final FirebaseAppCheck appCheck = FirebaseAppCheck.instance;
-final FirebaseFirestore db = FirebaseFirestore.instance;

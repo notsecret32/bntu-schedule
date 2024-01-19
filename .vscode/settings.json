@@ -4,13 +4,17 @@
     "source.organizeImports": "explicit"
   },
   "cSpell.words": [
+    "Autovalidate",
     "BNTU",
     "cupertino",
     "dartz",
+    "datasources",
     "datetime",
     "dotenv",
     "Firestore",
     "RGBO",
+    "usecase",
+    "usecases",
     "Беларускі",
     "БНТУ",
     "Бородуля",

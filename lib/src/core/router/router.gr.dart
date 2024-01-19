@@ -15,6 +15,12 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    AdminLoginRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const AdminLoginPage(),
+      );
+    },
     ExamRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -39,6 +45,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: SchedulePage(),
       );
     },
+    SelectGroupRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: SelectGroupPage(),
+      );
+    },
     SettingsRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -52,6 +64,20 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
   };
+}
+
+/// generated route for
+/// [AdminLoginPage]
+class AdminLoginRoute extends PageRouteInfo<void> {
+  const AdminLoginRoute({List<PageRouteInfo>? children})
+      : super(
+          AdminLoginRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'AdminLoginRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
@@ -106,6 +132,20 @@ class ScheduleRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'ScheduleRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [SelectGroupPage]
+class SelectGroupRoute extends PageRouteInfo<void> {
+  const SelectGroupRoute({List<PageRouteInfo>? children})
+      : super(
+          SelectGroupRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SelectGroupRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
