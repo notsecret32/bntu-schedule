@@ -9,13 +9,25 @@ import 'package:get_it/get_it.dart';
 import 'package:talker_flutter/talker_flutter.dart';
 
 Future<void> main() async {
+  // Loading data from the .env file
   await dotenv.load();
-  await initializeLoggers();
-  await initializeFirebaseApp();
+
+  // Initializing the injection
   await initializeInjection();
+
+  // Initializing logging
+  await initializeLoggers();
+
+  // Setting up Firebase
+  await initializeFirebaseApp();
+
+  // Run the app
   runApp(const BntuScheduleApp());
 }
 
+/// The main application.
+///
+/// The main application that runs in the `main` method.
 class BntuScheduleApp extends StatefulWidget {
   const BntuScheduleApp({super.key});
 
@@ -24,6 +36,7 @@ class BntuScheduleApp extends StatefulWidget {
 }
 
 class _BntuScheduleAppState extends State<BntuScheduleApp> {
+  /// A class for working with routes.
   final AppRouter _appRouter = AppRouter();
 
   @override
