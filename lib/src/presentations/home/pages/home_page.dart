@@ -26,7 +26,6 @@ class HomePage extends StatelessWidget {
             ),
             body: child,
             bottomNavigationBar: CustomBottomNavigationBar(
-              router: router,
               tabsRouter: tabsRouter,
             ),
           );
