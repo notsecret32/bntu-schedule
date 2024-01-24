@@ -40,12 +40,11 @@ class AppRouter extends _$AppRouter {
               page: NewsRoute.page,
               path: newsPageRouteKey,
             ),
+            AutoRoute(
+              page: SettingsRoute.page,
+              path: settingsPageRouteKey,
+            ),
           ],
-        ),
-        AutoRoute(
-          page: SettingsRoute.page,
-          path: settingsPageRouteKey,
-          guards: <AutoRouteGuard>[sl<GroupMustBeSelectedGuard>()],
         ),
         AutoRoute(
           page: SelectGroupRoute.page,
