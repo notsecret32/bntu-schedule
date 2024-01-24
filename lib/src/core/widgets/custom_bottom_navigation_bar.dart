@@ -44,7 +44,9 @@ class CustomBottomNavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     return BottomNavigationBar(
-      showUnselectedLabels: true,
+      type: BottomNavigationBarType.fixed,
+      showUnselectedLabels: false,
+      showSelectedLabels: false,
       selectedItemColor: theme.primaryColor,
       unselectedItemColor: theme.hintColor,
       currentIndex: tabsRouter.activeIndex,
