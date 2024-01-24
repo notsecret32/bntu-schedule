@@ -23,23 +23,3 @@ class SelectGroupNumberEvent extends SelectGroupEvent {
   @override
   List<Object> get props => <Object>[number];
 }
-
-/// An event for navigating to a specific page.
-class SelectGroupNavigateToEvent extends SelectGroupEvent {
-  const SelectGroupNavigateToEvent({
-    required this.router,
-    required this.path,
-  });
-
-  /// The navigation controller.
-  final StackRouter router;
-
-  /// The path to the page.
-  final String path;
-
-  @override
-  List<Object> get props => <Object>[
-        router,
-        path,
-      ];
-}
