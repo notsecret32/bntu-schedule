@@ -20,6 +20,10 @@ const List<BottomNavigationBarItem> defaultBottomNavigationItems =
     icon: Icon(Icons.newspaper),
     label: 'Новости',
   ),
+  BottomNavigationBarItem(
+    icon: Icon(Icons.settings),
+    label: 'Настройки',
+  ),
 ];
 
 /// Wrapper over the [BottomNavigationBar] widget, used to minimize repetitive code.
