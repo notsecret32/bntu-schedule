@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:bntu_schedule/src/core/constants/routes.dart';
 import 'package:bntu_schedule/src/core/router/group_must_be_selected_guard.dart';
 import 'package:bntu_schedule/src/injection.dart';
 import 'package:bntu_schedule/src/presentations/admin-login/pages/admin_login_page.dart';
@@ -19,39 +20,39 @@ class AppRouter extends _$AppRouter {
   List<AutoRoute> get routes => <AutoRoute>[
         AutoRoute(
           page: HomeRoute.page,
-          path: '/',
+          path: homePageRouteKey,
+          initial: true,
           guards: <AutoRouteGuard>[sl<GroupMustBeSelectedGuard>()],
           children: <AutoRoute>[
             AutoRoute(
               page: ScheduleRoute.page,
-              path: 'schedule',
+              path: schedulesPageRouteKey,
             ),
             AutoRoute(
               page: TeacherRoute.page,
-              path: 'teacher',
+              path: teachersPageRouteKey,
             ),
             AutoRoute(
               page: ExamRoute.page,
-              path: 'exam',
+              path: examsPageRouteKey,
             ),
             AutoRoute(
               page: NewsRoute.page,
-              path: 'news',
+              path: newsPageRouteKey,
+            ),
+            AutoRoute(
+              page: SettingsRoute.page,
+              path: settingsPageRouteKey,
             ),
           ],
         ),
         AutoRoute(
-          page: SettingsRoute.page,
-          guards: <AutoRouteGuard>[sl<GroupMustBeSelectedGuard>()],
-          path: '/settings',
-        ),
-        AutoRoute(
           page: SelectGroupRoute.page,
-          path: '/select-group',
+          path: selectGroupPageRouteKey,
         ),
         AutoRoute(
           page: AdminLoginRoute.page,
-          path: '/admin-login',
+          path: adminLoginPageRouteKey,
         ),
       ];
 }

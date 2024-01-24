@@ -75,7 +75,7 @@ class AdminLoginRoute extends PageRouteInfo<void> {
           initialChildren: children,
         );
 
-  static const String name = 'AdminLoginRoute';
+  static const String name = 'Admin Login';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -89,7 +89,7 @@ class ExamRoute extends PageRouteInfo<void> {
           initialChildren: children,
         );
 
-  static const String name = 'ExamRoute';
+  static const String name = 'Exams';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -103,7 +103,7 @@ class HomeRoute extends PageRouteInfo<void> {
           initialChildren: children,
         );
 
-  static const String name = 'HomeRoute';
+  static const String name = 'Home';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -117,7 +117,7 @@ class NewsRoute extends PageRouteInfo<void> {
           initialChildren: children,
         );
 
-  static const String name = 'NewsRoute';
+  static const String name = 'News';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -131,7 +131,7 @@ class ScheduleRoute extends PageRouteInfo<void> {
           initialChildren: children,
         );
 
-  static const String name = 'ScheduleRoute';
+  static const String name = 'Schedules';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -145,7 +145,7 @@ class SelectGroupRoute extends PageRouteInfo<void> {
           initialChildren: children,
         );
 
-  static const String name = 'SelectGroupRoute';
+  static const String name = 'Select Group';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -159,7 +159,7 @@ class SettingsRoute extends PageRouteInfo<void> {
           initialChildren: children,
         );
 
-  static const String name = 'SettingsRoute';
+  static const String name = 'Settings';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -173,7 +173,7 @@ class TeacherRoute extends PageRouteInfo<void> {
           initialChildren: children,
         );
 
-  static const String name = 'TeacherRoute';
+  static const String name = 'Teachers';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

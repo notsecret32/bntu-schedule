@@ -20,6 +20,10 @@ const List<BottomNavigationBarItem> defaultBottomNavigationItems =
     icon: Icon(Icons.newspaper),
     label: 'Новости',
   ),
+  BottomNavigationBarItem(
+    icon: Icon(Icons.settings),
+    label: 'Настройки',
+  ),
 ];
 
 /// Wrapper over the [BottomNavigationBar] widget, used to minimize repetitive code.
@@ -40,7 +44,9 @@ class CustomBottomNavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     return BottomNavigationBar(
-      showUnselectedLabels: true,
+      type: BottomNavigationBarType.fixed,
+      showUnselectedLabels: false,
+      showSelectedLabels: false,
       selectedItemColor: theme.primaryColor,
       unselectedItemColor: theme.hintColor,
       currentIndex: tabsRouter.activeIndex,

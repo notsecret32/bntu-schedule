@@ -33,18 +33,29 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     return AppBar(
-      leading: IconButton(
+      automaticallyImplyLeading: false,
+      leading: _createIcon(),
+      title: Text(
+        title,
+        style: theme.textTheme.headlineLarge,
+        textAlign: TextAlign.center,
+      ),
+    );
+  }
+
+  /// A method that creates a button with an icon, or returns null.
+  IconButton? _createIcon() {
+    if (icon != null) {
+      return IconButton(
         icon: Icon(
           icon,
           color: iconColor,
           weight: iconWeight,
         ),
         onPressed: onPress,
-      ),
-      title: Text(
-        title,
-        style: theme.textTheme.headlineLarge,
-      ),
-    );
+      );
+    }
+
+    return null;
   }
 }

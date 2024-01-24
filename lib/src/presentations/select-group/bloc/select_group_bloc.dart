@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:bloc/bloc.dart';
 import 'package:bntu_schedule/src/core/error/error.dart';
 import 'package:bntu_schedule/src/core/usecases/usecase.dart';
@@ -16,7 +15,6 @@ class SelectGroupBloc extends Bloc<SelectGroupEvent, SelectGroupState> {
   SelectGroupBloc() : super(SelectGroupInitialState()) {
     on<SelectGroupLoadEvent>(_getAllGroupsNumber);
     on<SelectGroupNumberEvent>(_setGroupNumber);
-    on<SelectGroupNavigateToEvent>(_navigateTo);
   }
 
   /// Calls [UseCase] to get a list of all available groups.
@@ -87,13 +85,5 @@ class SelectGroupBloc extends Bloc<SelectGroupEvent, SelectGroupState> {
       // Or an unknown error has returned
       emit(SelectGroupFailureState(error: error.toString()));
     }
-  }
-
-  /// Navigates to a specific page.
-  Future<void> _navigateTo(
-    SelectGroupNavigateToEvent event,
-    Emitter<SelectGroupState> emit,
-  ) async {
-    await event.router.navigateNamed(event.path);
   }
 }

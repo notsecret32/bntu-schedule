@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:bntu_schedule/src/core/constants/routes.dart';
 import 'package:bntu_schedule/src/core/widgets/widgets.dart';
 import 'package:bntu_schedule/src/injection.dart';
 import 'package:bntu_schedule/src/presentations/settings/bloc/settings_bloc.dart';
@@ -13,13 +14,8 @@ class SettingsPage extends StatelessWidget {
     return BlocProvider<SettingsBloc>(
       create: (BuildContext context) => sl<SettingsBloc>(),
       child: SafeArea(
-        child: Scaffold(
-          appBar: CustomAppBar(
-            title: 'Настройки',
-            icon: Icons.arrow_back,
-            onPress: router.pop,
-          ),
-          body: Padding(
+        child: Container(
+          child: Padding(
             padding: const EdgeInsets.all(16),
             child: BlocBuilder<SettingsBloc, SettingsState>(
               builder: (BuildContext context, SettingsState state) {
@@ -33,7 +29,7 @@ class SettingsPage extends StatelessWidget {
                         context
                             .read<SettingsBloc>()
                             .add(SettingsRemoveSelectedGroupEvent());
-                        await router.navigateNamed('/select-group');
+                        await router.navigateNamed(selectGroupPageRouteKey);
                       },
                     ),
                   ],
