@@ -21,10 +21,10 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const AdminLoginPage(),
       );
     },
-    ExamRoute.name: (routeData) {
+    ExamsRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: ExamPage(),
+        child: ExamsPage(),
       );
     },
     HomeRoute.name: (routeData) {
@@ -75,21 +75,21 @@ class AdminLoginRoute extends PageRouteInfo<void> {
           initialChildren: children,
         );
 
-  static const String name = 'Admin Login';
+  static const String name = 'AdminLoginRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
-/// [ExamPage]
-class ExamRoute extends PageRouteInfo<void> {
-  const ExamRoute({List<PageRouteInfo>? children})
+/// [ExamsPage]
+class ExamsRoute extends PageRouteInfo<void> {
+  const ExamsRoute({List<PageRouteInfo>? children})
       : super(
-          ExamRoute.name,
+          ExamsRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'Exams';
+  static const String name = 'ExamsRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -103,7 +103,7 @@ class HomeRoute extends PageRouteInfo<void> {
           initialChildren: children,
         );
 
-  static const String name = 'Home';
+  static const String name = 'HomeRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -117,7 +117,7 @@ class NewsRoute extends PageRouteInfo<void> {
           initialChildren: children,
         );
 
-  static const String name = 'News';
+  static const String name = 'NewsRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -131,7 +131,7 @@ class ScheduleRoute extends PageRouteInfo<void> {
           initialChildren: children,
         );
 
-  static const String name = 'Schedules';
+  static const String name = 'ScheduleRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -145,7 +145,7 @@ class SelectGroupRoute extends PageRouteInfo<void> {
           initialChildren: children,
         );
 
-  static const String name = 'Select Group';
+  static const String name = 'SelectGroupRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -159,7 +159,7 @@ class SettingsRoute extends PageRouteInfo<void> {
           initialChildren: children,
         );
 
-  static const String name = 'Settings';
+  static const String name = 'SettingsRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -173,7 +173,7 @@ class TeacherRoute extends PageRouteInfo<void> {
           initialChildren: children,
         );
 
-  static const String name = 'Teachers';
+  static const String name = 'TeacherRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

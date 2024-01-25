@@ -3,7 +3,7 @@ import 'package:bntu_schedule/src/core/constants/routes.dart';
 import 'package:bntu_schedule/src/core/router/group_must_be_selected_guard.dart';
 import 'package:bntu_schedule/src/injection.dart';
 import 'package:bntu_schedule/src/presentations/admin-login/pages/admin_login_page.dart';
-import 'package:bntu_schedule/src/presentations/exam/pages/exam_page.dart';
+import 'package:bntu_schedule/src/presentations/exams/pages/exams_page.dart';
 import 'package:bntu_schedule/src/presentations/home/pages/home_page.dart';
 import 'package:bntu_schedule/src/presentations/news/pages/news_page.dart';
 import 'package:bntu_schedule/src/presentations/schedule/pages/schedule_page.dart';
@@ -33,7 +33,7 @@ class AppRouter extends _$AppRouter {
               path: teachersPageRouteKey,
             ),
             AutoRoute(
-              page: ExamRoute.page,
+              page: ExamsRoute.page,
               path: examsPageRouteKey,
             ),
             AutoRoute(

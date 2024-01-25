@@ -13,7 +13,7 @@ class HomePage extends StatelessWidget {
       routes: const <PageRouteInfo>[
         ScheduleRoute(),
         TeacherRoute(),
-        ExamRoute(),
+        ExamsRoute(),
         NewsRoute(),
         SettingsRoute(),
       ],
