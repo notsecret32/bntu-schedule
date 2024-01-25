@@ -6,6 +6,7 @@ import 'package:bntu_schedule/src/domain/repositories/repositories.dart';
 import 'package:bntu_schedule/src/domain/usecases/usecases.dart';
 import 'package:bntu_schedule/src/presentations/select-group/bloc/select_group_bloc.dart';
 import 'package:bntu_schedule/src/presentations/settings/bloc/settings_bloc.dart';
+import 'package:bntu_schedule/src/presentations/welcome/cubit/welcome_actions_cubit.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -53,6 +54,12 @@ Future<void> initializeInjection() async {
     ),
   );
 
+  sl.registerLazySingleton<HasWelcomePageViewedGuard>(
+    () => HasWelcomePageViewedGuard(
+      sharedPreferences: sl(),
+    ),
+  );
+
   /// ========== [Data Sources] ==========
   /// [Group]
   sl.registerLazySingleton<GroupRemoteDataSource>(
@@ -67,6 +74,13 @@ Future<void> initializeInjection() async {
     ),
   );
 
+  /// [Welcome]
+  sl.registerLazySingleton<WelcomeLocalDataSource>(
+    () => WelcomeLocalDataSourceImpl(
+      sharedPreferences: sl(),
+    ),
+  );
+
   /// ========== [Repositories] ==========
   /// [Group]
   sl.registerLazySingleton<GroupRepository>(
@@ -74,6 +88,13 @@ Future<void> initializeInjection() async {
       remoteDataSource: sl(),
       localDataSource: sl(),
       networkInfo: sl(),
+    ),
+  );
+
+  /// [Welcome]
+  sl.registerLazySingleton<WelcomeRepository>(
+    () => WelcomeRepositoryImpl(
+      localDataSource: sl(),
     ),
   );
 
@@ -98,6 +119,13 @@ Future<void> initializeInjection() async {
     ),
   );
 
+  /// [Welcome]
+  sl.registerLazySingleton<SetWelcomePageViewedUseCase>(
+    () => SetWelcomePageViewedUseCase(
+      welcomeRepository: sl(),
+    ),
+  );
+
   /// ========== [Bloc & Cubit] ==========
   /// [SelectGroup]
   sl.registerFactory<SelectGroupBloc>(
@@ -107,5 +135,10 @@ Future<void> initializeInjection() async {
   /// [Settings]
   sl.registerFactory<SettingsBloc>(
     SettingsBloc.new,
+  );
+
+  /// [Welcome]
+  sl.registerFactory<WelcomeActionsCubit>(
+    WelcomeActionsCubit.new,
   );
 }
