@@ -34,11 +34,11 @@ class _SelectGroupPageState extends State<SelectGroupPage> {
         body: BlocConsumer<SelectGroupBloc, SelectGroupState>(
           listener: (BuildContext context, SelectGroupState state) {
             if (state is SelectGroupNumberSelected) {
-              router.navigateNamed(homeSchedulesPageRouteKey);
+              router.pushNamed(homeSchedulesPageRouteKey);
             }
 
             if (state is SelectGroupNumberRemoved) {
-              router.navigateNamed(selectGroupPageRouteKey);
+              router.pushNamed(selectGroupPageRouteKey);
             }
           },
           builder: (BuildContext context, SelectGroupState state) {
@@ -55,7 +55,7 @@ class _SelectGroupPageState extends State<SelectGroupPage> {
             }
 
             if (state is SelectGroupNumberRemoved) {
-              router.navigateNamed(selectGroupPageRouteKey);
+              router.pushNamed(selectGroupPageRouteKey);
             }
 
             if (state is SelectGroupLoadedState) {

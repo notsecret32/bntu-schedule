@@ -29,7 +29,7 @@ class SettingsPage extends StatelessWidget {
                         context
                             .read<SettingsBloc>()
                             .add(SettingsRemoveSelectedGroupEvent());
-                        await router.navigateNamed(selectGroupPageRouteKey);
+                        await router.pushNamed(selectGroupPageRouteKey);
                       },
                     ),
                   ],
