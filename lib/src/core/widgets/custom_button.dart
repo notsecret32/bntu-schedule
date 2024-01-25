@@ -7,6 +7,7 @@ class CustomButton extends StatelessWidget {
     required this.text,
     this.onPress,
     this.backgroundColor,
+    this.textColor,
   });
 
   /// Required button text.
@@ -20,6 +21,9 @@ class CustomButton extends StatelessWidget {
   /// If the color is not specified, `theme.colorScheme.primary`
   /// is used by default.
   final Color? backgroundColor;
+
+  /// Text color.
+  final Color? textColor;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +41,9 @@ class CustomButton extends StatelessWidget {
         onPressed: onPress,
         child: Text(
           text,
-          style: theme.textTheme.titleSmall,
+          style: theme.textTheme.titleSmall!.copyWith(
+            color: textColor,
+          ),
         ),
       ),
     );
