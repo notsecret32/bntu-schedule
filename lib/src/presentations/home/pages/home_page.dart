@@ -12,7 +12,7 @@ class HomePage extends StatelessWidget {
       animatePageTransition: false,
       routes: const <PageRouteInfo>[
         SchedulesRoute(),
-        TeacherRoute(),
+        TeachersRoute(),
         ExamsRoute(),
         NewsRoute(),
         SettingsRoute(),
