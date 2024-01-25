@@ -1,5 +1,5 @@
 import 'package:bntu_schedule/src/core/network/network_info.dart';
-import 'package:bntu_schedule/src/core/router/guards.dart';
+import 'package:bntu_schedule/src/core/router/guards/guards.dart';
 import 'package:bntu_schedule/src/data/datasources/datasources.dart';
 import 'package:bntu_schedule/src/data/repositories/repositories.dart';
 import 'package:bntu_schedule/src/domain/repositories/repositories.dart';

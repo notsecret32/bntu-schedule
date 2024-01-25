@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:bntu_schedule/src/core/constants/routes.dart';
-import 'package:bntu_schedule/src/core/router/guards.dart';
+import 'package:bntu_schedule/src/core/router/guards/guards.dart';
 import 'package:bntu_schedule/src/injection.dart';
 import 'package:bntu_schedule/src/presentations/admin-login/pages/admin_login_page.dart';
 import 'package:bntu_schedule/src/presentations/exams/pages/exams_page.dart';
