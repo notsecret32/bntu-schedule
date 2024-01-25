@@ -15,6 +15,12 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    AdminHomePanelRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const AdminHomePanelPage(),
+      );
+    },
     AdminLoginRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -70,6 +76,20 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
   };
+}
+
+/// generated route for
+/// [AdminHomePanelPage]
+class AdminHomePanelRoute extends PageRouteInfo<void> {
+  const AdminHomePanelRoute({List<PageRouteInfo>? children})
+      : super(
+          AdminHomePanelRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'AdminHomePanelRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for

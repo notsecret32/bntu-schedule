@@ -1,23 +1,105 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:bntu_schedule/src/core/constants/routes.dart';
 import 'package:bntu_schedule/src/core/widgets/widgets.dart';
+import 'package:bntu_schedule/src/injection.dart';
+import 'package:bntu_schedule/src/presentations/admin-login/cubit/admin_login_cubit.dart';
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:talker_flutter/talker_flutter.dart';
 
 @RoutePage()
-class AdminLoginPage extends StatelessWidget {
+class AdminLoginPage extends StatefulWidget {
   const AdminLoginPage({super.key});
+
+  @override
+  State<AdminLoginPage> createState() => _AdminLoginPageState();
+}
+
+class _AdminLoginPageState extends State<AdminLoginPage> {
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final TextEditingController _emailTextController = TextEditingController();
+  final TextEditingController _passwordTextController = TextEditingController();
+
+  @override
+  void dispose() {
+    _emailTextController.dispose();
+    _passwordTextController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     final StackRouter router = AutoRouter.of(context);
-    return Scaffold(
-      appBar: CustomAppBar(
-        title: 'Вход',
-        icon: Icons.arrow_back,
-        onPress: () async => await router.pop(),
-      ),
-      body: const Center(
-        child: Text(
-          'Admin Login',
+    return BlocProvider<AdminLoginCubit>(
+      create: (BuildContext context) => sl<AdminLoginCubit>(),
+      child: Scaffold(
+        appBar: CustomAppBar(
+          title: 'Вход',
+          icon: Icons.arrow_back,
+          onPress: () async => await router.navigateNamed(
+            selectGroupPageRouteKey,
+          ),
+        ),
+        body: BlocBuilder<AdminLoginCubit, AdminLoginState>(
+          builder: (BuildContext context, AdminLoginState state) {
+            if (state is AdminLoginFailureState) {
+              return Center(
+                child: Text(state.error),
+              );
+            }
+
+            return Form(
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              key: _formKey,
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Column(
+                  children: <Widget>[
+                    CustomTextField(
+                      hintText: 'Логин',
+                      controller: _emailTextController,
+                      validator: (String? value) =>
+                          EmailValidator.validate(value!)
+                              ? null
+                              : 'Введен неверный email',
+                    ),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    CustomTextField(
+                      hintText: 'Пароль',
+                      controller: _passwordTextController,
+                      validator: (String? value) => value!.length > 4
+                          ? null
+                          : 'Пароль должен состоять из 4 и более символов',
+                      isPassword: true,
+                    ),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    CustomButton(
+                      text: 'Войти',
+                      onPress: () async {
+                        if (_formKey.currentState!.validate()) {
+                          try {
+                            await context.read<AdminLoginCubit>().login(
+                                  _emailTextController.text,
+                                  _passwordTextController.text,
+                                );
+
+                            await router.pushNamed(adminPanelPageRouteKey);
+                          } catch (error) {
+                            sl<Talker>().error(error);
+                          }
+                        }
+                      },
+                    ),
+                  ],
+                ),
+              ),
+            );
+          },
         ),
       ),
     );

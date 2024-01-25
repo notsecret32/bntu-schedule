@@ -4,6 +4,8 @@ import 'package:bntu_schedule/src/data/datasources/datasources.dart';
 import 'package:bntu_schedule/src/data/repositories/repositories.dart';
 import 'package:bntu_schedule/src/domain/repositories/repositories.dart';
 import 'package:bntu_schedule/src/domain/usecases/usecases.dart';
+import 'package:bntu_schedule/src/presentations/admin-home-panel/cubit/admin_home_login_cubit.dart';
+import 'package:bntu_schedule/src/presentations/admin-login/cubit/admin_login_cubit.dart';
 import 'package:bntu_schedule/src/presentations/select-group/bloc/select_group_bloc.dart';
 import 'package:bntu_schedule/src/presentations/settings/bloc/settings_bloc.dart';
 import 'package:bntu_schedule/src/presentations/welcome/cubit/welcome_actions_cubit.dart';
@@ -47,20 +49,37 @@ Future<void> initializeInjection() async {
     InternetConnectionChecker.new,
   );
 
-  /// [Router Guards]
+  /// ========== [Router Guards] ==========
+  /// [GroupMustBeSelected]
   sl.registerLazySingleton<GroupMustBeSelectedGuard>(
     () => GroupMustBeSelectedGuard(
       sharedPreferences: sl(),
     ),
   );
 
+  /// [HasWelcomePageViewedGuard]
   sl.registerLazySingleton<HasWelcomePageViewedGuard>(
     () => HasWelcomePageViewedGuard(
+      auth: sl(),
       sharedPreferences: sl(),
     ),
   );
 
+  /// [AuthGuard]
+  sl.registerLazySingleton<AuthGuard>(
+    () => AuthGuard(
+      auth: sl(),
+    ),
+  );
+
   /// ========== [Data Sources] ==========
+  /// [Auth]
+  sl.registerLazySingleton<AuthRemoteDataSource>(
+    () => AuthRemoteDataSourceImpl(
+      auth: sl(),
+    ),
+  );
+
   /// [Group]
   sl.registerLazySingleton<GroupRemoteDataSource>(
     () => GroupRemoteDataSourceImpl(
@@ -82,6 +101,14 @@ Future<void> initializeInjection() async {
   );
 
   /// ========== [Repositories] ==========
+  /// [Auth]
+  sl.registerLazySingleton<AuthRepository>(
+    () => AuthRepositoryImpl(
+      networkInfo: sl(),
+      remoteDataSource: sl(),
+    ),
+  );
+
   /// [Group]
   sl.registerLazySingleton<GroupRepository>(
     () => GroupRepositoryImpl(
@@ -99,6 +126,18 @@ Future<void> initializeInjection() async {
   );
 
   /// ========== [UseCases] ==========
+  /// [Auth]
+  sl.registerLazySingleton<LoginUseCase>(
+    () => LoginUseCase(
+      authRepository: sl(),
+    ),
+  );
+  sl.registerLazySingleton<LogoutUseCase>(
+    () => LogoutUseCase(
+      authRepository: sl(),
+    ),
+  );
+
   /// [Select Group]
   sl.registerLazySingleton<GetAllGroupsNumberUseCase>(
     () => GetAllGroupsNumberUseCase(
@@ -127,6 +166,16 @@ Future<void> initializeInjection() async {
   );
 
   /// ========== [Bloc & Cubit] ==========
+  /// [Admin Login]
+  sl.registerFactory<AdminLoginCubit>(
+    AdminLoginCubit.new,
+  );
+
+  /// [Admin Home Panel]
+  sl.registerFactory<AdminHomeLoginCubit>(
+    AdminHomeLoginCubit.new,
+  );
+
   /// [SelectGroup]
   sl.registerFactory<SelectGroupBloc>(
     SelectGroupBloc.new,
