@@ -34,6 +34,7 @@ dependencies:
   talker_logger: ^3.1.0
   week_of_year: ^2.2.0
   dropdown_search: ^5.0.6
+  smooth_page_indicator: ^1.1.0
 
 dev_dependencies:
   flutter_test:

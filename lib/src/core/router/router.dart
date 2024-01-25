@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:bntu_schedule/src/core/constants/routes.dart';
-import 'package:bntu_schedule/src/core/router/group_must_be_selected_guard.dart';
+import 'package:bntu_schedule/src/core/router/guards.dart';
 import 'package:bntu_schedule/src/injection.dart';
 import 'package:bntu_schedule/src/presentations/admin-login/pages/admin_login_page.dart';
 import 'package:bntu_schedule/src/presentations/exams/pages/exams_page.dart';
@@ -10,6 +10,7 @@ import 'package:bntu_schedule/src/presentations/schedules/pages/schedules_page.d
 import 'package:bntu_schedule/src/presentations/select-group/pages/select_group_page.dart';
 import 'package:bntu_schedule/src/presentations/settings/pages/settings_page.dart';
 import 'package:bntu_schedule/src/presentations/teachers/pages/teachers_page.dart';
+import 'package:bntu_schedule/src/presentations/welcome/pages/pages.dart';
 
 part 'router.gr.dart';
 
@@ -21,7 +22,6 @@ class AppRouter extends _$AppRouter {
         AutoRoute(
           page: HomeRoute.page,
           path: homePageRouteKey,
-          initial: true,
           guards: <AutoRouteGuard>[sl<GroupMustBeSelectedGuard>()],
           children: <AutoRoute>[
             AutoRoute(
@@ -45,6 +45,13 @@ class AppRouter extends _$AppRouter {
               path: settingsPageRouteKey,
             ),
           ],
+        ),
+        AutoRoute(
+          page: WelcomeRoute.page,
+          guards: <AutoRouteGuard>[
+            sl<HasWelcomePageViewedGuard>(),
+          ],
+          path: '/',
         ),
         AutoRoute(
           page: SelectGroupRoute.page,
