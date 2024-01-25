@@ -1,9 +1,9 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:bntu_schedule/src/presentations/schedule/schedule.dart';
+import 'package:bntu_schedule/src/presentations/schedules/schedules.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
-class SchedulePage extends StatelessWidget {
+class SchedulesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Column(

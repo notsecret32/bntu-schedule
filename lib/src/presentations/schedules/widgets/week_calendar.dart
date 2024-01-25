@@ -1,6 +1,6 @@
 import 'package:bntu_schedule/src/core/utils/utils.dart';
 import 'package:bntu_schedule/src/core/widgets/widgets.dart';
-import 'package:bntu_schedule/src/presentations/schedule/widgets/widgets.dart';
+import 'package:bntu_schedule/src/presentations/schedules/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:week_of_year/week_of_year.dart';
 

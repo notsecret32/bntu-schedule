@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget {
     return AutoTabsRouter.tabBar(
       animatePageTransition: false,
       routes: const <PageRouteInfo>[
-        ScheduleRoute(),
+        SchedulesRoute(),
         TeacherRoute(),
         ExamsRoute(),
         NewsRoute(),
