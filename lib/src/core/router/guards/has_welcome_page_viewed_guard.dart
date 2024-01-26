@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:bntu_schedule/src/core/constants/cache_keys.dart';
 import 'package:bntu_schedule/src/core/router/router.dart';
 import 'package:bntu_schedule/src/injection.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:talker_flutter/talker_flutter.dart';
 
@@ -11,8 +12,13 @@ import 'package:talker_flutter/talker_flutter.dart';
 /// `SelectGroup` page.
 class HasWelcomePageViewedGuard extends AutoRouteGuard {
   HasWelcomePageViewedGuard({
+    required FirebaseAuth auth,
     required SharedPreferences sharedPreferences,
-  }) : _sharedPreferences = sharedPreferences;
+  })  : _auth = auth,
+        _sharedPreferences = sharedPreferences;
+
+  /// An instance of the [FirebaseAuth] class for working with authorization.
+  final FirebaseAuth _auth;
 
   /// Storage for storing simple data.
   final SharedPreferences _sharedPreferences;
@@ -43,6 +49,12 @@ class HasWelcomePageViewedGuard extends AutoRouteGuard {
         resolver.nextOrBack();
       } else {
         talker.good('The user viewed this page');
+
+        // If the admin is logged in, navigate him to the admin panel
+        if (_auth.currentUser != null) {
+          resolver.redirect(const AdminHomePanelRoute());
+          return;
+        }
 
         // If the user has already viewed this page, navigate him to the
         // `SelectGroup` page

@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:bntu_schedule/src/core/constants/routes.dart';
 import 'package:bntu_schedule/src/core/router/guards/guards.dart';
 import 'package:bntu_schedule/src/injection.dart';
+import 'package:bntu_schedule/src/presentations/admin-home-panel/pages/admin_home_panel_page.dart';
 import 'package:bntu_schedule/src/presentations/admin-login/pages/admin_login_page.dart';
 import 'package:bntu_schedule/src/presentations/exams/pages/exams_page.dart';
 import 'package:bntu_schedule/src/presentations/home/pages/home_page.dart';
@@ -19,6 +20,7 @@ part 'router.gr.dart';
 class AppRouter extends _$AppRouter {
   @override
   List<AutoRoute> get routes => <AutoRoute>[
+        /// ========== [Home] ==========
         AutoRoute(
           page: HomeRoute.page,
           path: homePageRouteKey,
@@ -46,6 +48,15 @@ class AppRouter extends _$AppRouter {
             ),
           ],
         ),
+
+        /// ========== [Admin] ==========
+        AutoRoute(
+          page: AdminHomePanelRoute.page,
+          path: adminPanelPageRouteKey,
+          guards: <AutoRouteGuard>[sl<AuthGuard>()],
+        ),
+
+        /// ========== [Other] ==========
         AutoRoute(
           page: WelcomeRoute.page,
           guards: <AutoRouteGuard>[

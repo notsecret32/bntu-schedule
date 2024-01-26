@@ -22,7 +22,7 @@ class GroupRepositoryImpl extends GroupRepository {
   /// for working with local data.
   final GroupLocalDataSource localDataSource;
 
-  /// An instance of the [GroupLocalDataSource] class
+  /// An instance of the [NetworkInfo] class
   /// for working with network.
   final NetworkInfo networkInfo;
 
