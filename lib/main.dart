@@ -1,8 +1,8 @@
-import 'package:bntu_schedule/src/core/firebase/firebase.dart';
-import 'package:bntu_schedule/src/core/logging/logging.dart';
-import 'package:bntu_schedule/src/core/router/router.dart';
-import 'package:bntu_schedule/src/core/theme/theme.dart';
-import 'package:bntu_schedule/src/injection.dart';
+import 'package:bntu_schedule/core/firebase/firebase.dart';
+import 'package:bntu_schedule/core/logging/logging.dart';
+import 'package:bntu_schedule/core/router/router.dart';
+import 'package:bntu_schedule/core/theme/theme.dart';
+import 'package:bntu_schedule/injection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get_it/get_it.dart';
