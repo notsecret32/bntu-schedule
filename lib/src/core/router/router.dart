@@ -4,13 +4,10 @@ import 'package:bntu_schedule/src/core/router/guards/guards.dart';
 import 'package:bntu_schedule/src/injection.dart';
 import 'package:bntu_schedule/src/presentations/admin-home-panel/pages/admin_home_panel_page.dart';
 import 'package:bntu_schedule/src/presentations/admin-login/pages/admin_login_page.dart';
-import 'package:bntu_schedule/src/presentations/exams/pages/exams_page.dart';
 import 'package:bntu_schedule/src/presentations/home/pages/home_page.dart';
-import 'package:bntu_schedule/src/presentations/news/pages/news_page.dart';
 import 'package:bntu_schedule/src/presentations/schedules/pages/schedules_page.dart';
 import 'package:bntu_schedule/src/presentations/select-group/pages/select_group_page.dart';
 import 'package:bntu_schedule/src/presentations/settings/pages/settings_page.dart';
-import 'package:bntu_schedule/src/presentations/teachers/pages/teachers_page.dart';
 import 'package:bntu_schedule/src/presentations/welcome/pages/pages.dart';
 
 part 'router.gr.dart';
@@ -29,18 +26,6 @@ class AppRouter extends _$AppRouter {
             AutoRoute(
               page: SchedulesRoute.page,
               path: schedulesPageRouteKey,
-            ),
-            AutoRoute(
-              page: TeachersRoute.page,
-              path: teachersPageRouteKey,
-            ),
-            AutoRoute(
-              page: ExamsRoute.page,
-              path: examsPageRouteKey,
-            ),
-            AutoRoute(
-              page: NewsRoute.page,
-              path: newsPageRouteKey,
             ),
             AutoRoute(
               page: SettingsRoute.page,

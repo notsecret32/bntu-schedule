@@ -27,22 +27,10 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const AdminLoginPage(),
       );
     },
-    ExamsRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: ExamsPage(),
-      );
-    },
     HomeRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: HomePage(),
-      );
-    },
-    NewsRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: NewsPage(),
       );
     },
     SchedulesRoute.name: (routeData) {
@@ -61,12 +49,6 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: SettingsPage(),
-      );
-    },
-    TeachersRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: TeachersPage(),
       );
     },
     WelcomeRoute.name: (routeData) {
@@ -107,20 +89,6 @@ class AdminLoginRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [ExamsPage]
-class ExamsRoute extends PageRouteInfo<void> {
-  const ExamsRoute({List<PageRouteInfo>? children})
-      : super(
-          ExamsRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'ExamsRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
 /// [HomePage]
 class HomeRoute extends PageRouteInfo<void> {
   const HomeRoute({List<PageRouteInfo>? children})
@@ -130,20 +98,6 @@ class HomeRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'HomeRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [NewsPage]
-class NewsRoute extends PageRouteInfo<void> {
-  const NewsRoute({List<PageRouteInfo>? children})
-      : super(
-          NewsRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'NewsRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -186,20 +140,6 @@ class SettingsRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'SettingsRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [TeachersPage]
-class TeachersRoute extends PageRouteInfo<void> {
-  const TeachersRoute({List<PageRouteInfo>? children})
-      : super(
-          TeachersRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'TeachersRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

@@ -9,18 +9,6 @@ const List<BottomNavigationBarItem> defaultBottomNavigationItems =
     label: 'Расписание',
   ),
   BottomNavigationBarItem(
-    icon: Icon(Icons.people),
-    label: 'Преподаватели',
-  ),
-  BottomNavigationBarItem(
-    icon: Icon(Icons.assignment_sharp),
-    label: 'Экзамены',
-  ),
-  BottomNavigationBarItem(
-    icon: Icon(Icons.newspaper),
-    label: 'Новости',
-  ),
-  BottomNavigationBarItem(
     icon: Icon(Icons.settings),
     label: 'Настройки',
   ),

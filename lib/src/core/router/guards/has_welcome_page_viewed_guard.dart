@@ -53,19 +53,29 @@ class HasWelcomePageViewedGuard extends AutoRouteGuard {
         // If the admin is logged in, navigate him to the admin panel
         if (_auth.currentUser != null) {
           resolver.redirect(const AdminHomePanelRoute());
-          return;
         }
 
-        // If the user has already viewed this page, navigate him to the
-        // `SelectGroup` page
-        resolver.redirect(const SelectGroupRoute());
+        // If the user is not logged in as an admin
+        // Get the selected group
+        final String? selectedGroup = _sharedPreferences.getString(
+          selectedGroupCacheKey,
+        );
+
+        // If the group is not selected
+        if (selectedGroup == null) {
+          // Go to the select group page
+          resolver.redirect(const SelectGroupRoute());
+        }
+
+        // Otherwise, go to the schedule page
+        resolver.redirect(const SchedulesRoute());
       }
     } catch (e) {
       talker.error(
         '''
-        An error has occurred, we are sending the user to the welcome page.
+        An unexpected error has occurred.
         
-        Error: $e
+        Error message: $e
         ''',
       );
 
