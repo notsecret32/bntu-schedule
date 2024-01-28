@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:bntu_schedule/core/constants/routes.dart';
-import 'package:bntu_schedule/core/widgets/custom_app_bar.dart';
+import 'package:bntu_schedule/core/widgets/widgets.dart';
 import 'package:bntu_schedule/features/schedules/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -12,10 +12,15 @@ class SchedulesPage extends StatelessWidget {
     return Scaffold(
       appBar: CustomAppBar(
         title: 'Расписание',
-        icon: Icons.settings,
-        onPress: () async => await router.navigateNamed(
+        leadingIcon: Icons.settings,
+        onLeadingIconPress: () async => await router.navigateNamed(
           homeSettingsPageRouteKey,
         ),
+        actions: <CustomAppBarActionButton>[
+          const CustomAppBarActionButton(
+            icon: Icons.search,
+          ),
+        ],
       ),
       body: const SafeArea(
         child: Column(

@@ -37,8 +37,8 @@ class _AdminAuthenticationPageState extends State<AdminAuthenticationPage> {
       child: Scaffold(
         appBar: CustomAppBar(
           title: 'Вход',
-          icon: Icons.arrow_back,
-          onPress: () async => await router.navigateNamed(
+          leadingIcon: Icons.arrow_back,
+          onLeadingIconPress: () async => await router.navigateNamed(
             selectGroupPageRouteKey,
           ),
         ),

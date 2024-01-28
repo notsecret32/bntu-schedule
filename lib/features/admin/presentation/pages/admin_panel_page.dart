@@ -20,8 +20,8 @@ class AdminSchedulePage extends StatelessWidget {
           return Scaffold(
             appBar: CustomAppBar(
               title: 'Админка (Расписание)',
-              icon: Icons.exit_to_app,
-              onPress: () {
+              leadingIcon: Icons.exit_to_app,
+              onLeadingIconPress: () {
                 context.read<AdminAuthenticationCubit>().logout().then(
                       (_) async => await router.navigateNamed(
                         adminLoginPageRouteKey,
