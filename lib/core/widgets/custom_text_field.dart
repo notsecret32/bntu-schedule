@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 /// The wrapper over the [TextFormField] is used to minimize repetitive code.
 class CustomTextField extends StatelessWidget {
@@ -8,6 +9,8 @@ class CustomTextField extends StatelessWidget {
     this.isPassword,
     this.controller,
     this.validator,
+    this.textFilter,
+    this.textMaxLength,
   });
 
   /// Text with a hint.
@@ -23,6 +26,12 @@ class CustomTextField extends StatelessWidget {
 
   /// The validation function or otherwise checking the data for correctness.
   final String? Function(String? value)? validator;
+
+  /// Text filter for different characters.
+  final TextInputFormatter? textFilter;
+
+  /// Maximum number of characters.
+  final int? textMaxLength;
 
   @override
   Widget build(BuildContext context) {
@@ -56,6 +65,12 @@ class CustomTextField extends StatelessWidget {
           fontWeight: FontWeight.normal,
         ),
       ),
+
+      /// ========== [Input Formatters] ==========
+      inputFormatters: <TextInputFormatter>[
+        textFilter ?? FilteringTextInputFormatter.singleLineFormatter,
+        LengthLimitingTextInputFormatter(textMaxLength),
+      ],
 
       /// ========== [Text Style] ==========
       style: theme.textTheme.titleSmall!.copyWith(
