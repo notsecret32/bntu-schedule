@@ -29,6 +29,10 @@ class _WeekCalendarState extends State<WeekCalendar> {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     return CustomContainer(
+      borderRadius: const BorderRadius.only(
+        bottomLeft: Radius.circular(8),
+        bottomRight: Radius.circular(8),
+      ),
       padding: const EdgeInsets.symmetric(
         horizontal: 16,
         vertical: 8,
