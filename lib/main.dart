@@ -5,8 +5,6 @@ import 'package:bntu_schedule/core/theme/theme.dart';
 import 'package:bntu_schedule/injection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:get_it/get_it.dart';
-import 'package:talker_flutter/talker_flutter.dart';
 
 Future<void> main() async {
   // Loading data from the .env file
@@ -36,20 +34,13 @@ class BntuScheduleApp extends StatefulWidget {
 }
 
 class _BntuScheduleAppState extends State<BntuScheduleApp> {
-  /// A class for working with routes.
-  final AppRouter _appRouter = AppRouter();
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: 'БНТУ Расписание',
       theme: themeData,
-      routerConfig: _appRouter.config(
-        navigatorObservers: () => <NavigatorObserver>[
-          TalkerRouteObserver(GetIt.I<Talker>()),
-        ],
-      ),
+      routerConfig: appGoRouter,
     );
   }
 }
