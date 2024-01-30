@@ -22,7 +22,7 @@ class AdminAuthenticationRedirect {
     try {
       talker.info('Check the admin for existence (Auth Guard)');
 
-      talker.info('Admin email: ${_auth.currentUser!.email ?? 'Null'}');
+      talker.info('Admin email: ${_auth.currentUser}');
 
       if (_auth.currentUser != null) {
         talker.good('It looks like the admin exists, redirect him admin panel');
