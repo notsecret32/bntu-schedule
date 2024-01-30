@@ -42,7 +42,6 @@ class SchedulesHeader extends StatelessWidget implements PreferredSizeWidget {
         autovalidateMode: AutovalidateMode.onUserInteraction,
         child: SelectGroupBottomSheet(
           textFieldController: controller,
-          textFieldValidator: _validateSelectedGroup,
           onButtonPressed: () => _onSelectButtonPressed(context),
         ),
       ),
@@ -61,17 +60,5 @@ class SchedulesHeader extends StatelessWidget implements PreferredSizeWidget {
         ),
       );
     }
-  }
-
-  String? _validateSelectedGroup(String? value) {
-    if (value == null) {
-      return 'Это поле не может быть пустым';
-    }
-
-    if (value.length < 8) {
-      return 'Номер группы должен состоять из 8 цифр';
-    }
-
-    return null;
   }
 }
