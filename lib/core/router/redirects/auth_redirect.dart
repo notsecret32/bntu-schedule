@@ -27,13 +27,13 @@ class AdminAuthenticationRedirect {
       if (_auth.currentUser != null) {
         talker.good('It looks like the admin exists, redirect him admin panel');
 
-        return RoutesList.adminPanelPage.path;
+        return RoutesList.adminPanelPage.fullPath;
       } else {
         talker.warning(
           'The admin did not pass the existence check, return him to the AdminLogin page',
         );
 
-        return RoutesList.adminAuthenticationPage.path;
+        return RoutesList.adminAuthenticationPage.fullPath;
       }
     } catch (e) {
       throw Exception(
