@@ -1,10 +1,10 @@
-import 'package:auto_route/auto_route.dart';
-import 'package:bntu_schedule/core/constants/routes.dart';
+import 'package:bntu_schedule/core/router/routes_list.dart';
 import 'package:bntu_schedule/core/widgets/custom_button.dart';
 import 'package:bntu_schedule/features/welcome/presentation/cubit/welcome_actions_cubit.dart';
 import 'package:bntu_schedule/injection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class WelcomeActions extends StatelessWidget {
   const WelcomeActions({super.key});
@@ -12,7 +12,6 @@ class WelcomeActions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    final StackRouter router = AutoRouter.of(context);
     return BlocProvider<WelcomeActionsCubit>(
       create: (BuildContext context) => sl<WelcomeActionsCubit>(),
       child: BlocBuilder<WelcomeActionsCubit, WelcomeActionsState>(
@@ -32,8 +31,7 @@ class WelcomeActions extends StatelessWidget {
                         backgroundColor: theme.colorScheme.onPrimary,
                         onPress: () async => await _navigateOnClick(
                           context,
-                          router,
-                          selectGroupPageRouteKey,
+                          RoutesList.schedulesSelectGroupPage.name,
                         ),
                       ),
                       const SizedBox(
@@ -44,8 +42,7 @@ class WelcomeActions extends StatelessWidget {
                         backgroundColor: theme.colorScheme.onSecondaryContainer,
                         onPress: () async => await _navigateOnClick(
                           context,
-                          router,
-                          adminLoginPageRouteKey,
+                          RoutesList.adminAuthenticationPage.name,
                         ),
                       ),
                       const SizedBox(
@@ -93,10 +90,9 @@ class WelcomeActions extends StatelessWidget {
 
   Future<void> _navigateOnClick(
     BuildContext context,
-    StackRouter router,
     String path,
   ) async {
     await context.read<WelcomeActionsCubit>().setWelcomePageViewed();
-    await router.pushNamed(path);
+    context.goNamed(path);
   }
 }

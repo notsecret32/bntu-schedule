@@ -1,11 +1,12 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:bntu_schedule/core/constants/routes.dart';
+import 'package:bntu_schedule/core/router/routes_list.dart';
 import 'package:bntu_schedule/core/widgets/widgets.dart';
 import 'package:bntu_schedule/features/admin/presentation/cubit/admin_authentication_cubit.dart';
 import 'package:bntu_schedule/injection.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:talker_flutter/talker_flutter.dart';
 
 @RoutePage()
@@ -31,15 +32,14 @@ class _AdminAuthenticationPageState extends State<AdminAuthenticationPage> {
 
   @override
   Widget build(BuildContext context) {
-    final StackRouter router = AutoRouter.of(context);
     return BlocProvider<AdminAuthenticationCubit>(
       create: (BuildContext context) => sl<AdminAuthenticationCubit>(),
       child: Scaffold(
         appBar: CustomAppBar(
           title: 'Вход',
           leadingIcon: Icons.arrow_back,
-          onLeadingIconPress: () async => await router.navigateNamed(
-            selectGroupPageRouteKey,
+          onLeadingIconPress: () => context.goNamed(
+            RoutesList.schedulesSelectGroupPage.name,
           ),
         ),
         body: BlocBuilder<AdminAuthenticationCubit, AdminAuthenticationState>(
@@ -84,14 +84,15 @@ class _AdminAuthenticationPageState extends State<AdminAuthenticationPage> {
                       onPress: () async {
                         if (_formKey.currentState!.validate()) {
                           try {
-                            await context
+                            context
                                 .read<AdminAuthenticationCubit>()
                                 .login(
                                   _emailTextController.text,
                                   _passwordTextController.text,
-                                );
-
-                            await router.pushNamed(adminPanelPageRouteKey);
+                                )
+                                .then((_) {
+                              context.goNamed(RoutesList.adminPanelPage.name);
+                            });
                           } catch (error) {
                             sl<Talker>().error(error);
                           }
