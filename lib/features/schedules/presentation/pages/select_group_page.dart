@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:bntu_schedule/core/router/routes_list.dart';
 import 'package:bntu_schedule/core/widgets/widgets.dart';
 import 'package:bntu_schedule/features/schedules/presentation/bloc/select_group_bloc.dart';
@@ -8,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-@RoutePage()
 class SelectGroupPage extends StatefulWidget {
   @override
   State<SelectGroupPage> createState() => _SelectGroupPageState();

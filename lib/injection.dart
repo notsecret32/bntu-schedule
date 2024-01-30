@@ -1,5 +1,4 @@
 import 'package:bntu_schedule/core/network/network_info.dart';
-import 'package:bntu_schedule/core/router/guards/guards.dart';
 import 'package:bntu_schedule/core/router/redirects/redirects.dart';
 import 'package:bntu_schedule/features/admin/data/datasources/admin_authentication_remote_data_source.dart';
 import 'package:bntu_schedule/features/admin/data/repositories/repositories.dart';
@@ -77,29 +76,6 @@ Future<void> initializeInjection() async {
     () => HasWelcomePageViewedRedirect(
       auth: sl(),
       sharedPreferences: sl(),
-    ),
-  );
-
-  /// ========== [Router Guards] ==========
-  /// [GroupMustBeSelected]
-  sl.registerLazySingleton<GroupMustBeSelectedGuard>(
-    () => GroupMustBeSelectedGuard(
-      sharedPreferences: sl(),
-    ),
-  );
-
-  /// [HasWelcomePageViewedGuard]
-  sl.registerLazySingleton<HasWelcomePageViewedGuard>(
-    () => HasWelcomePageViewedGuard(
-      auth: sl(),
-      sharedPreferences: sl(),
-    ),
-  );
-
-  /// [AuthGuard]
-  sl.registerLazySingleton<AuthGuard>(
-    () => AuthGuard(
-      auth: sl(),
     ),
   );
 
