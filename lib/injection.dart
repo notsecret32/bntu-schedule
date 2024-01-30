@@ -10,7 +10,6 @@ import 'package:bntu_schedule/features/schedules/data/repositories/repositories.
 import 'package:bntu_schedule/features/schedules/domain/repositories/repositories.dart';
 import 'package:bntu_schedule/features/schedules/domain/usecases/usecases.dart';
 import 'package:bntu_schedule/features/schedules/presentation/bloc/select_group_bloc.dart';
-import 'package:bntu_schedule/features/schedules/presentation/bloc/settings_bloc.dart';
 import 'package:bntu_schedule/features/welcome/data/datasources/datasources.dart';
 import 'package:bntu_schedule/features/welcome/data/repositories/repositories.dart';
 import 'package:bntu_schedule/features/welcome/domain/repositories/repositories.dart';
@@ -181,11 +180,6 @@ Future<void> initializeInjection() async {
   /// [SelectGroup]
   sl.registerFactory<SelectGroupBloc>(
     SelectGroupBloc.new,
-  );
-
-  /// [Settings]
-  sl.registerFactory<SettingsBloc>(
-    SettingsBloc.new,
   );
 
   /// [Welcome]
