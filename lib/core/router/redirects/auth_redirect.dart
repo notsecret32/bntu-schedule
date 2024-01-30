@@ -1,20 +1,22 @@
-import 'package:auto_route/auto_route.dart';
-import 'package:bntu_schedule/core/router/router.dart';
+import 'dart:async';
+
+import 'package:bntu_schedule/core/router/routes_list.dart';
 import 'package:bntu_schedule/injection.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:talker_flutter/talker_flutter.dart';
 
 /// Checks whether the admin is actually logged in or not.
-class AuthGuard extends AutoRouteGuard {
-  AuthGuard({
+class AdminAuthenticationRedirect {
+  AdminAuthenticationRedirect({
     required FirebaseAuth auth,
   }) : _auth = auth;
 
   /// An instance of the [FirebaseAuth] class for working with authorization.
   final FirebaseAuth _auth;
 
-  @override
-  void onNavigation(NavigationResolver resolver, StackRouter router) {
+  FutureOr<String?> call(BuildContext context, GoRouterState state) async {
     final Talker talker = sl<Talker>();
 
     try {
@@ -23,15 +25,15 @@ class AuthGuard extends AutoRouteGuard {
       talker.info('Admin email: ${_auth.currentUser!.email ?? 'Null'}');
 
       if (_auth.currentUser != null) {
-        talker.good('It looks like the admin exists, redirect him further');
+        talker.good('It looks like the admin exists, redirect him admin panel');
 
-        resolver.next();
+        return RoutesList.adminPanelPage.path;
       } else {
         talker.warning(
           'The admin did not pass the existence check, return him to the AdminLogin page',
         );
 
-        resolver.redirect(const AdminAuthenticationRoute());
+        return RoutesList.adminAuthenticationPage.path;
       }
     } catch (e) {
       throw Exception(

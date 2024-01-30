@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:bntu_schedule/features/welcome/presentation/cubit/welcome_actions_cubit.dart';
 import 'package:bntu_schedule/features/welcome/presentation/widgets/widget.dart';
 import 'package:bntu_schedule/injection.dart';
@@ -11,7 +10,6 @@ const List<StatelessWidget> defaultWelcomePages = <StatelessWidget>[
   WelcomeActions(),
 ];
 
-@RoutePage()
 class WelcomePage extends StatefulWidget {
   const WelcomePage({super.key});
 

@@ -1,13 +1,12 @@
-import 'package:auto_route/auto_route.dart';
-import 'package:bntu_schedule/core/constants/routes.dart';
+import 'package:bntu_schedule/core/router/routes_list.dart';
 import 'package:bntu_schedule/core/widgets/widgets.dart';
 import 'package:bntu_schedule/features/schedules/presentation/bloc/select_group_bloc.dart';
 import 'package:bntu_schedule/injection.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
-@RoutePage()
 class SelectGroupPage extends StatefulWidget {
   @override
   State<SelectGroupPage> createState() => _SelectGroupPageState();
@@ -24,7 +23,6 @@ class _SelectGroupPageState extends State<SelectGroupPage> {
 
   @override
   Widget build(BuildContext context) {
-    final StackRouter router = AutoRouter.of(context);
     return BlocProvider<SelectGroupBloc>(
       create: (BuildContext context) => sl<SelectGroupBloc>(),
       child: Scaffold(
@@ -34,11 +32,11 @@ class _SelectGroupPageState extends State<SelectGroupPage> {
         body: BlocConsumer<SelectGroupBloc, SelectGroupState>(
           listener: (BuildContext context, SelectGroupState state) {
             if (state is SelectGroupNumberSelected) {
-              router.pushNamed(schedulesPageRouteKey);
+              context.go(RoutesList.navigateToSelectedGroup(_selectedGroup));
             }
 
             if (state is SelectGroupNumberRemoved) {
-              router.pushNamed(selectGroupPageRouteKey);
+              context.goNamed(RoutesList.schedulesSelectGroupPage.name);
             }
           },
           builder: (BuildContext context, SelectGroupState state) {
@@ -55,12 +53,12 @@ class _SelectGroupPageState extends State<SelectGroupPage> {
             }
 
             if (state is SelectGroupNumberRemoved) {
-              router.pushNamed(selectGroupPageRouteKey);
+              context.goNamed(RoutesList.schedulesSelectGroupPage.name);
             }
 
             if (state is SelectGroupLoadedState) {
               final SelectGroupBloc bloc = context.read<SelectGroupBloc>();
-              return _buildLoadedBody(state, bloc, router);
+              return _buildLoadedBody(context, state, bloc);
             }
 
             // If nothing has passed, then this is SelectGroupLoadingState
@@ -73,9 +71,9 @@ class _SelectGroupPageState extends State<SelectGroupPage> {
 
   /// A method for building the UI when the data is loaded.
   Widget _buildLoadedBody(
+    BuildContext context,
     SelectGroupLoadedState state,
     SelectGroupBloc bloc,
-    StackRouter router,
   ) {
     final ThemeData theme = Theme.of(context);
     return Center(
@@ -139,8 +137,8 @@ class _SelectGroupPageState extends State<SelectGroupPage> {
                       TextSpan(
                         text: 'Войти',
                         recognizer: TapGestureRecognizer()
-                          ..onTap = () async => await router.navigateNamed(
-                                adminLoginPageRouteKey,
+                          ..onTap = () => context.goNamed(
+                                RoutesList.adminAuthenticationPage.name,
                               ),
                         style: theme.textTheme.bodyMedium!.copyWith(
                           color: theme.colorScheme.primary,

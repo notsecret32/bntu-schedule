@@ -1,5 +1,5 @@
 import 'package:bntu_schedule/core/network/network_info.dart';
-import 'package:bntu_schedule/core/router/guards/guards.dart';
+import 'package:bntu_schedule/core/router/redirects/redirects.dart';
 import 'package:bntu_schedule/features/admin/data/datasources/admin_authentication_remote_data_source.dart';
 import 'package:bntu_schedule/features/admin/data/repositories/repositories.dart';
 import 'package:bntu_schedule/features/admin/domain/repositories/repositories.dart';
@@ -56,26 +56,26 @@ Future<void> initializeInjection() async {
     InternetConnectionChecker.new,
   );
 
-  /// ========== [Router Guards] ==========
-  /// [GroupMustBeSelected]
-  sl.registerLazySingleton<GroupMustBeSelectedGuard>(
-    () => GroupMustBeSelectedGuard(
+  /// ========== [Router Redirects] ==========
+  /// [AdminAuthenticationRedirect]
+  sl.registerLazySingleton<AdminAuthenticationRedirect>(
+    () => AdminAuthenticationRedirect(
+      auth: sl(),
+    ),
+  );
+
+  /// [GroupNumberMustBeSelected]
+  sl.registerLazySingleton<GroupNumberMustBeSelected>(
+    () => GroupNumberMustBeSelected(
       sharedPreferences: sl(),
     ),
   );
 
   /// [HasWelcomePageViewedGuard]
-  sl.registerLazySingleton<HasWelcomePageViewedGuard>(
-    () => HasWelcomePageViewedGuard(
+  sl.registerLazySingleton<HasWelcomePageViewedRedirect>(
+    () => HasWelcomePageViewedRedirect(
       auth: sl(),
       sharedPreferences: sl(),
-    ),
-  );
-
-  /// [AuthGuard]
-  sl.registerLazySingleton<AuthGuard>(
-    () => AuthGuard(
-      auth: sl(),
     ),
   );
 
