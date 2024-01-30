@@ -10,6 +10,7 @@ class RoutesList {
   static final CustomGoRouteData welcomePage = CustomGoRouteData(
     path: '/',
     name: 'welcome',
+    fullPath: '/',
     redirect: sl<HasWelcomePageViewedRedirect>(),
   );
 
@@ -17,12 +18,14 @@ class RoutesList {
   static final CustomGoRouteData schedulesSelectGroupPage = CustomGoRouteData(
     path: '/schedules',
     name: 'schedules',
+    fullPath: '/schedules',
   );
 
   /// Schedule view page.
   static final CustomGoRouteData schedulesGroupNumberPage = CustomGoRouteData(
     path: ':groupNumber',
     name: 'selected-group',
+    fullPath: '/schedules/:groupNumber',
     redirect: sl<GroupNumberMustBeSelected>(),
   );
 
@@ -30,12 +33,14 @@ class RoutesList {
   static final CustomGoRouteData schedulesSettingsPage = CustomGoRouteData(
     path: 'settings',
     name: 'schedules-settings',
+    fullPath: '/schedules/settings',
   );
 
   /// The admin panel page.
   static final CustomGoRouteData adminPanelPage = CustomGoRouteData(
     path: '/admin',
     name: 'admin-panel',
+    fullPath: '/admin',
     redirect: sl<AdminAuthenticationRedirect>(),
   );
 
@@ -43,6 +48,7 @@ class RoutesList {
   static final CustomGoRouteData adminAuthenticationPage = CustomGoRouteData(
     path: 'auth',
     name: 'admin-auth',
+    fullPath: '/admin/auth',
   );
 
   /// A method that builds a string to get the path to the schedule of

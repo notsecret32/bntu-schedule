@@ -8,6 +8,7 @@ final class CustomGoRouteData {
   CustomGoRouteData({
     required this.path,
     required this.name,
+    required this.fullPath,
     this.redirect,
   });
 
@@ -16,6 +17,10 @@ final class CustomGoRouteData {
 
   /// The name of this route is used to abstract from the path.
   final String name;
+
+  /// The full path to the page. It is used to specify the full path mainly in
+  /// redirects.
+  final String fullPath;
 
   /// The redirect method for this router.
   final FutureOr<String?> Function(
