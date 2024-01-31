@@ -15,14 +15,14 @@ class RoutesList {
   );
 
   /// The group selection page.
-  static final CustomGoRouteData schedulesSelectGroupPage = CustomGoRouteData(
+  static final CustomGoRouteData selectGroupPage = CustomGoRouteData(
     path: '/schedules',
     name: 'schedules',
     fullPath: '/schedules',
   );
 
   /// Schedule view page.
-  static final CustomGoRouteData schedulesGroupNumberPage = CustomGoRouteData(
+  static final CustomGoRouteData scheduleViewPage = CustomGoRouteData(
     path: ':groupNumber',
     name: 'selected-group',
     fullPath: '/schedules/:groupNumber',
@@ -54,6 +54,6 @@ class RoutesList {
   /// A method that builds a string to get the path to the schedule of
   /// a certain group.
   static String navigateToSelectedGroup(String selectedGroupNumber) {
-    return '${schedulesSelectGroupPage.path}/$selectedGroupNumber';
+    return '${selectGroupPage.path}/$selectedGroupNumber';
   }
 }

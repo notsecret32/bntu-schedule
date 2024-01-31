@@ -14,7 +14,7 @@ class AdminAuthenticationView extends StatelessWidget {
         title: 'Вход',
         leadingIcon: Icons.arrow_back,
         onLeadingIconPress: () => context.goNamed(
-          RoutesList.schedulesSelectGroupPage.name,
+          RoutesList.selectGroupPage.name,
         ),
       ),
       body: const AdminAuthenticationForm(),

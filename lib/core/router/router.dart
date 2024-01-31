@@ -1,7 +1,7 @@
 import 'package:bntu_schedule/core/router/routes_list.dart';
 import 'package:bntu_schedule/features/admin/presentation/pages/admin_authentication_page.dart';
 import 'package:bntu_schedule/features/admin/presentation/pages/admin_panel_page.dart';
-import 'package:bntu_schedule/features/schedules/presentation/pages/pages.dart';
+import 'package:bntu_schedule/features/schedule/presentation/pages/pages.dart';
 import 'package:bntu_schedule/features/welcome/presentation/pages/pages.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -17,20 +17,20 @@ final GoRouter appGoRouter = GoRouter(
           const WelcomePage(),
     ),
     GoRoute(
-      name: RoutesList.schedulesSelectGroupPage.name,
-      path: RoutesList.schedulesSelectGroupPage.path,
+      name: RoutesList.selectGroupPage.name,
+      path: RoutesList.selectGroupPage.path,
       builder: (BuildContext context, GoRouterState state) => SelectGroupPage(),
       routes: <RouteBase>[
         GoRoute(
           name: RoutesList.schedulesSettingsPage.name,
           path: RoutesList.schedulesSettingsPage.path,
           builder: (BuildContext context, GoRouterState state) =>
-              SchedulesSettingsPage(),
+              ScheduleSettingsPage(),
         ),
         GoRoute(
-          path: RoutesList.schedulesGroupNumberPage.path,
-          redirect: RoutesList.schedulesGroupNumberPage.redirect,
-          builder: (BuildContext context, GoRouterState state) => SchedulesPage(
+          path: RoutesList.scheduleViewPage.path,
+          redirect: RoutesList.scheduleViewPage.redirect,
+          builder: (BuildContext context, GoRouterState state) => SchedulePage(
             groupNumber: state.pathParameters['groupNumber']!,
           ),
         ),

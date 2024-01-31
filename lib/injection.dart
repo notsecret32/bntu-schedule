@@ -5,11 +5,11 @@ import 'package:bntu_schedule/features/admin/data/repositories/repositories.dart
 import 'package:bntu_schedule/features/admin/domain/repositories/repositories.dart';
 import 'package:bntu_schedule/features/admin/domain/usecases/usecases.dart';
 import 'package:bntu_schedule/features/admin/presentation/cubit/admin_authentication_cubit.dart';
-import 'package:bntu_schedule/features/schedules/data/datasources/datasources.dart';
-import 'package:bntu_schedule/features/schedules/data/repositories/repositories.dart';
-import 'package:bntu_schedule/features/schedules/domain/repositories/repositories.dart';
-import 'package:bntu_schedule/features/schedules/domain/usecases/usecases.dart';
-import 'package:bntu_schedule/features/schedules/presentation/bloc/select_group_bloc.dart';
+import 'package:bntu_schedule/features/schedule/data/datasources/datasources.dart';
+import 'package:bntu_schedule/features/schedule/data/repositories/repositories.dart';
+import 'package:bntu_schedule/features/schedule/domain/repositories/repositories.dart';
+import 'package:bntu_schedule/features/schedule/domain/usecases/usecases.dart';
+import 'package:bntu_schedule/features/schedule/presentation/bloc/select_group_bloc.dart';
 import 'package:bntu_schedule/features/welcome/data/datasources/datasources.dart';
 import 'package:bntu_schedule/features/welcome/data/repositories/repositories.dart';
 import 'package:bntu_schedule/features/welcome/domain/repositories/repositories.dart';

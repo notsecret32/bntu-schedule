@@ -20,7 +20,7 @@ class WelcomeActionButtons extends StatelessWidget {
           backgroundColor: theme.colorScheme.onPrimary,
           onPress: () async => await _onButtonPressed(
             context,
-            RoutesList.schedulesSelectGroupPage.name,
+            RoutesList.selectGroupPage.name,
           ),
         ),
         const SizedBox(

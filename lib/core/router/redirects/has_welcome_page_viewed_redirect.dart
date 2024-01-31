@@ -56,7 +56,7 @@ class HasWelcomePageViewedRedirect {
         );
 
         if (selectedGroup == null) {
-          return RoutesList.schedulesSelectGroupPage.path;
+          return RoutesList.selectGroupPage.path;
         }
 
         return RoutesList.navigateToSelectedGroup(selectedGroup);

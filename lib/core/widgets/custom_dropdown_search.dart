@@ -1,4 +1,4 @@
-import 'package:bntu_schedule/features/schedules/domain/entities/group_number_entity.dart';
+import 'package:bntu_schedule/features/schedule/domain/entities/group_number_entity.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 
