@@ -14,7 +14,10 @@ part 'admin_authentication_state.dart';
 class AdminAuthenticationCubit extends Cubit<AdminAuthenticationState> {
   AdminAuthenticationCubit() : super(AdminAuthenticationInitialState());
 
-  Future<UserCredential> login(String email, String password) async {
+  Future<UserCredential> login({
+    required String email,
+    required String password,
+  }) async {
     try {
       emit(AdminAuthenticationLoadingState());
 

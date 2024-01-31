@@ -29,7 +29,7 @@ class GroupNumberMustBeSelected {
         'The group is not specified, redirecting to the SelectGroup page',
       );
 
-      return RoutesList.schedulesSelectGroupPage.path;
+      return RoutesList.selectGroupPage.path;
     }
 
     final String? selectedGroupByParams = state.pathParameters['groupNumber'];
