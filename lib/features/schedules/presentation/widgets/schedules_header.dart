@@ -4,18 +4,27 @@ import 'package:bntu_schedule/features/schedules/presentation/widgets/widgets.da
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class SchedulesHeader extends StatelessWidget implements PreferredSizeWidget {
+class SchedulesHeader extends StatefulWidget implements PreferredSizeWidget {
   const SchedulesHeader({
     super.key,
-    required this.formKey,
-    required this.controller,
   });
-
-  final GlobalKey<FormState> formKey;
-  final TextEditingController controller;
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+
+  @override
+  State<SchedulesHeader> createState() => _SchedulesHeaderState();
+}
+
+class _SchedulesHeaderState extends State<SchedulesHeader> {
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final TextEditingController _controller = TextEditingController();
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,10 +47,10 @@ class SchedulesHeader extends StatelessWidget implements PreferredSizeWidget {
     CustomBottomSheet.showBottomSheet(
       context: context,
       child: Form(
-        key: formKey,
+        key: _formKey,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         child: SelectGroupBottomSheet(
-          textFieldController: controller,
+          textFieldController: _controller,
           onButtonPressed: () => _onSelectButtonPressed(context),
         ),
       ),
@@ -49,14 +58,14 @@ class SchedulesHeader extends StatelessWidget implements PreferredSizeWidget {
   }
 
   void _onSelectButtonPressed(BuildContext context) {
-    if (formKey.currentState!.validate()) {
+    if (_formKey.currentState!.validate()) {
       // Hiding the Bottom Sheet
       context.pop();
 
       // TODO: There should be a state management here
       context.go(
         RoutesList.navigateToSelectedGroup(
-          controller.text,
+          _controller.text,
         ),
       );
     }
