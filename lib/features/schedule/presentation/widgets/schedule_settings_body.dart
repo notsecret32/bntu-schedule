@@ -9,11 +9,15 @@ class ScheduleSettingsBody extends StatelessWidget {
     return SafeArea(
       child: Container(
         padding: const EdgeInsets.all(16),
-        child: const Column(
+        child: Column(
           children: <Widget>[
             CustomButton(
               text: 'Просто кнопка',
               backgroundColor: Colors.red,
+              onPress: () => CustomSnackBarViewer.showSnackBar(
+                context: context,
+                text: 'Привет, SnackBar!',
+              ),
             ),
           ],
         ),
