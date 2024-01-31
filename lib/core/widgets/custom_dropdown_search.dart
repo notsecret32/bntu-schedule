@@ -1,4 +1,3 @@
-import 'package:bntu_schedule/features/schedule/domain/entities/group_number_entity.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +13,7 @@ class CustomDropdownSearch extends StatefulWidget {
   });
 
   /// The item list to display.
-  final List<GroupNumberEntity> items;
+  final List<Widget> items;
 
   /// Validation function, used to be able to add validation anywhere.
   final Function(String? selectedItem)? validator;
@@ -112,7 +111,7 @@ class _CustomDropdownSearchState extends State<CustomDropdownSearch> {
   List<String> _convertToDropdownMenuItems() {
     return widget.items
         .map(
-          (GroupNumberEntity group) => group.number,
+          (Widget group) => group.toString(),
         )
         .toList();
   }
