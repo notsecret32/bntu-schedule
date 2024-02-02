@@ -16,11 +16,10 @@ class GroupScheduleEntity extends Equatable {
   /// An object that stores a schedule for certain types of weeks.
   ///
   /// ```dart
-  /// final schedules = ScheduleEntity(
-  ///   groupNumber: {
-  ///    '10701421': GroupScheduleEntity(
-  ///       weekdays: WeekDayEntity(...),
-  ///     ),
+  /// final example = GroupScheduleEntity(
+  ///   weeks: {
+  ///     WeekTypesEnum.firstWeek: WeekDayEntity(...),
+  ///     WeekTypesEnum.secondWeek: WeekDayEntity(...),
   ///   },
   /// );
   /// ```
