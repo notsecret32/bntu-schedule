@@ -7,8 +7,8 @@ abstract class NetworkInfo {
 }
 
 /// Implementation of the abstract class `[NetworkInfo]`.
-class NetworkInfoImp implements NetworkInfo {
-  NetworkInfoImp(this.connectionChecker);
+class NetworkInfoImpl implements NetworkInfo {
+  NetworkInfoImpl(this.connectionChecker);
 
   /// Singleton for working with the network
   final InternetConnectionChecker connectionChecker;

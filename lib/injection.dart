@@ -40,7 +40,7 @@ Future<void> initializeInjection() async {
 
   /// [Network Info]
   sl.registerLazySingleton<NetworkInfo>(
-    () => NetworkInfoImp(
+    () => NetworkInfoImpl(
       sl(),
     ),
   );
