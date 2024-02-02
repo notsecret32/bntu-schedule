@@ -1,3 +1,4 @@
+export 'group_number_entity.dart';
 export 'group_schedule_entity.dart';
 export 'lesson_entity.dart';
 export 'lesson_name_entity.dart';
