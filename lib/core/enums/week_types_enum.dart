@@ -6,7 +6,7 @@
 /// * The first week
 /// * The second week
 ///
-/// The week number is calculated as follows: `week of year % 2`
+/// The week type is calculated as follows: `week of year % 2`
 enum WeekTypesEnum {
   firstWeek,
   secondWeek,
