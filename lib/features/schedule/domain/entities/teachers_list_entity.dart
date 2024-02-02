@@ -16,8 +16,6 @@ class TeachersListEntity extends Equatable {
   /// properties as this instance, but with the provided values.
   TeachersListEntity copyWith({
     TTeachersListEntity? teachers,
-    String? secondName,
-    String? middleName,
   }) {
     return TeachersListEntity(
       teachers: teachers ?? this.teachers,
