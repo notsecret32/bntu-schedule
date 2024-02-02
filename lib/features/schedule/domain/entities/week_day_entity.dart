@@ -10,6 +10,7 @@ typedef LessonEntityList = List<LessonEntity>;
 /// the value is [LessonEntityList].
 typedef LessonEntityListMap = Map<WeekDayEnum, LessonEntityList>;
 
+/// An entity that represents an entire week, from Monday to Sunday.
 class WeekDayEntity extends Equatable {
   const WeekDayEntity({
     required this.weekdays,
