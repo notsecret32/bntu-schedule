@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:bntu_schedule/core/error/failure/failure.dart';
+import 'package:bntu_schedule/core/error/failure.dart';
 import 'package:bntu_schedule/core/usecases/usecase.dart';
 import 'package:bntu_schedule/features/welcome/domain/usecases/set_welcome_page_viewed_use_case.dart';
 import 'package:bntu_schedule/injection.dart';

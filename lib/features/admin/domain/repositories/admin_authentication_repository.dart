@@ -1,4 +1,4 @@
-import 'package:bntu_schedule/core/error/error.dart';
+import 'package:bntu_schedule/core/error/failure.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 

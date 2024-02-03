@@ -1,4 +1,4 @@
-import 'package:bntu_schedule/core/error/failure/failure.dart';
+import 'package:bntu_schedule/core/error/failure.dart';
 import 'package:dartz/dartz.dart';
 
 export 'no_params.dart';
