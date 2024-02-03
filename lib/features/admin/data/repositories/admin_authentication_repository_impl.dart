@@ -45,7 +45,7 @@ class AdminAuthenticationRepositoryImpl extends AdminAuthenticationRepository {
     }
 
     return const Left<Failure, UserCredential>(
-      NoInternetConnectionFailure('No Internet connection'),
+      NetworkFailure('No Internet connection'),
     );
   }
 
@@ -69,7 +69,7 @@ class AdminAuthenticationRepositoryImpl extends AdminAuthenticationRepository {
     }
 
     return const Left<Failure, void>(
-      NoInternetConnectionFailure('No Internet connection'),
+      NetworkFailure('No Internet connection'),
     );
   }
 }

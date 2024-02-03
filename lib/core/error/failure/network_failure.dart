@@ -6,9 +6,3 @@ import 'package:bntu_schedule/core/error/error.dart';
 class NetworkFailure extends Failure {
   const NetworkFailure(super.message);
 }
-
-/// The subtype of the class [NetworkFailure] indicates that there is no
-/// Internet connection.
-class NoInternetConnectionFailure extends NetworkFailure {
-  const NoInternetConnectionFailure(super.message);
-}

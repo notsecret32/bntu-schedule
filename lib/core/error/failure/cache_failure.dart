@@ -6,7 +6,3 @@ import 'package:bntu_schedule/core/error/failure/failure.dart';
 class CacheFailure extends Failure {
   const CacheFailure(super.message);
 }
-
-final class NoDataInCacheFailure extends CacheFailure {
-  const NoDataInCacheFailure(super.message);
-}
