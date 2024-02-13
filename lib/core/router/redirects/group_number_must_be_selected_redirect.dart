@@ -22,7 +22,7 @@ class GroupNumberMustBeSelected {
       selectedGroupKey,
     );
 
-    sl<Talker>().info('Selected group: $selectedGroupNumber');
+    sl<Talker>().info('Selected group: "$selectedGroupNumber"');
 
     if (selectedGroupNumber == null) {
       sl<Talker>().warning(
@@ -35,7 +35,7 @@ class GroupNumberMustBeSelected {
     final String? selectedGroupByParams = state.pathParameters['groupNumber'];
 
     sl<Talker>().info(
-      'Selected group by params: ${selectedGroupByParams ?? 'not selected'}',
+      'Selected group by params: "${selectedGroupByParams ?? 'not selected'}"',
     );
 
     if (selectedGroupByParams == null || selectedGroupByParams.length != 8) {
@@ -47,7 +47,7 @@ class GroupNumberMustBeSelected {
     }
 
     sl<Talker>().good(
-      'The group number from the parameters is suitable, changing the selected group number to: $selectedGroupByParams',
+      'The group number from the parameters is suitable, changing the selected group number to: "$selectedGroupByParams"',
     );
 
     _sharedPreferences.setString(selectedGroupKey, selectedGroupByParams);
