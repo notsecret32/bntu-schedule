@@ -5,8 +5,8 @@ class CustomBottomSheet {
   static Future<void> showBottomSheet({
     required BuildContext context,
     required Widget child,
-  }) {
-    return showModalBottomSheet(
+  }) async {
+    return await showModalBottomSheet(
       context: context,
       enableDrag: true,
       isScrollControlled: true,

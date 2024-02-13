@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:bntu_schedule/core/error/failure/failure.dart';
+import 'package:bntu_schedule/core/error/failure.dart';
 import 'package:bntu_schedule/core/usecases/usecase.dart';
 import 'package:bntu_schedule/features/admin/domain/usecases/usecases.dart';
 import 'package:bntu_schedule/injection.dart';

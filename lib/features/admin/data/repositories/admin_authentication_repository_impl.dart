@@ -1,4 +1,4 @@
-import 'package:bntu_schedule/core/error/failure/failure.dart';
+import 'package:bntu_schedule/core/error/failure.dart';
 import 'package:bntu_schedule/core/network/network_info.dart';
 import 'package:bntu_schedule/features/admin/data/datasources/admin_authentication_remote_data_source.dart';
 import 'package:bntu_schedule/features/admin/domain/repositories/admin_authentication_repository.dart';
@@ -33,7 +33,7 @@ class AdminAuthenticationRepositoryImpl extends AdminAuthenticationRepository {
         return Right<Failure, UserCredential>(admin);
       } catch (e) {
         return Left<Failure, UserCredential>(
-          ServerFailure(
+          Failure(
             '''
             Something went wrong when trying to log in to the admin panel...
             
@@ -45,7 +45,7 @@ class AdminAuthenticationRepositoryImpl extends AdminAuthenticationRepository {
     }
 
     return const Left<Failure, UserCredential>(
-      NoInternetConnectionFailure('No Internet connection'),
+      Failure('No Internet connection'),
     );
   }
 
@@ -57,7 +57,7 @@ class AdminAuthenticationRepositoryImpl extends AdminAuthenticationRepository {
         return const Right<Failure, void>(null);
       } catch (e) {
         return Left<Failure, void>(
-          ServerFailure(
+          Failure(
             '''
             Something went wrong when trying to log in to the admin panel...
             
@@ -69,7 +69,7 @@ class AdminAuthenticationRepositoryImpl extends AdminAuthenticationRepository {
     }
 
     return const Left<Failure, void>(
-      NoInternetConnectionFailure('No Internet connection'),
+      Failure('No Internet connection'),
     );
   }
 }

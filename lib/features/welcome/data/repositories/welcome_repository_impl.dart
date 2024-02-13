@@ -1,4 +1,4 @@
-import 'package:bntu_schedule/core/error/failure/failure.dart';
+import 'package:bntu_schedule/core/error/failure.dart';
 import 'package:bntu_schedule/features/welcome/data/datasources/welcome_local_data_source.dart';
 import 'package:bntu_schedule/features/welcome/domain/repositories/welcome_repository.dart';
 import 'package:dartz/dartz.dart';
@@ -20,7 +20,7 @@ class WelcomeRepositoryImpl extends WelcomeRepository {
       return const Right<Failure, void>(null);
     } catch (e) {
       return const Left<Failure, void>(
-        CacheFailure(
+        Failure(
           'Something went wrong when trying to indicate that the welcome page was viewed',
         ),
       );

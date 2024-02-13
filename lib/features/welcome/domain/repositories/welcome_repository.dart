@@ -1,4 +1,4 @@
-import 'package:bntu_schedule/core/error/error.dart';
+import 'package:bntu_schedule/core/error/failure.dart';
 import 'package:dartz/dartz.dart';
 
 /// An abstract repository class for working with the welcome page.

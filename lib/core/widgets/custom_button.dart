@@ -8,10 +8,14 @@ class CustomButton extends StatelessWidget {
     this.onPress,
     this.backgroundColor,
     this.textColor,
+    this.enable = true,
   });
 
   /// Required button text.
   final String text;
+
+  /// Indicates whether this widget is active or not.
+  final bool enable;
 
   /// Callback function, triggered by pressing a button.
   final void Function()? onPress;
@@ -38,7 +42,7 @@ class CustomButton extends StatelessWidget {
         vertical: 4,
       ),
       child: TextButton(
-        onPressed: onPress,
+        onPressed: enable ? onPress : null,
         child: Text(
           text,
           style: theme.textTheme.titleSmall!.copyWith(

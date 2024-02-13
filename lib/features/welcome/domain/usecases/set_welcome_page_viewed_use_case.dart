@@ -1,4 +1,4 @@
-import 'package:bntu_schedule/core/error/failure/failure.dart';
+import 'package:bntu_schedule/core/error/failure.dart';
 import 'package:bntu_schedule/core/usecases/usecase.dart';
 import 'package:bntu_schedule/features/welcome/domain/repositories/welcome_repository.dart';
 import 'package:dartz/dartz.dart';
