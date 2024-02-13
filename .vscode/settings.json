@@ -1,3 +1,28 @@
 {
-	"cSpell.words": ["BNTU", "cupertino", "RGBO", "БНТУ"]
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    "source.organizeImports": "explicit"
+  },
+  "cSpell.words": [
+    "autocorrect",
+    "Autovalidate",
+    "BNTU",
+    "cupertino",
+    "dartz",
+    "datasources",
+    "datetime",
+    "dotenv",
+    "Firestore",
+    "Ivanov",
+    "Ivanovich",
+    "RGBO",
+    "Sergeyevich",
+    "Subcollection",
+    "usecase",
+    "usecases",
+    "Беларускі",
+    "БНТУ",
+    "Бородуля",
+    "Практ"
+  ]
 }
