@@ -1,8 +1,16 @@
 import 'package:bntu_schedule/core/router/routes_list.dart';
-import 'package:bntu_schedule/core/widgets/widgets.dart';
-import 'package:bntu_schedule/features/schedule/presentation/widgets/widgets.dart';
+import 'package:bntu_schedule/core/widgets/widgets.dart'
+    show CustomAppBar, CustomAppBarActionButton, CustomBottomSheet;
+import 'package:bntu_schedule/features/schedule/presentation/bloc/group_bloc.dart';
+import 'package:bntu_schedule/features/schedule/presentation/widgets/widgets.dart'
+    show SelectGroupBottomSheet;
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+
+// TODO: Надо упростить код, ибо пока что это полный треш, реально
+// TODO: Сделать поиск группы как отдельный виджет (GroupSearch)
+// TODO: Можно попробовать сделать GroupSearch как отдельный виджет с отображением `SnackBar`, а в этом виджете обернуть все это в `BottomSheet`
 
 class ScheduleHeader extends StatefulWidget implements PreferredSizeWidget {
   const ScheduleHeader({
@@ -51,23 +59,17 @@ class _ScheduleHeaderState extends State<ScheduleHeader> {
         autovalidateMode: AutovalidateMode.onUserInteraction,
         child: SelectGroupBottomSheet(
           textFieldController: _controller,
-          onButtonPressed: () => _onSelectButtonPressed(context),
+          onButtonPressed: () async => await _onSelectButtonPressed(context),
         ),
       ),
     );
   }
 
-  void _onSelectButtonPressed(BuildContext context) {
+  Future<void> _onSelectButtonPressed(BuildContext context) async {
     if (_formKey.currentState!.validate()) {
-      // Hiding the Bottom Sheet
-      context.pop();
-
-      // TODO: There should be a state management here
-      context.go(
-        RoutesList.navigateToSelectedGroup(
-          _controller.text,
-        ),
-      );
+      context
+          .read<GroupBloc>()
+          .add(SelectGroupEvent(groupNumber: _controller.text));
     }
   }
 }

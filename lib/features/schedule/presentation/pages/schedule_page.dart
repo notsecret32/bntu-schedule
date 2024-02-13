@@ -1,5 +1,11 @@
-import 'package:bntu_schedule/features/schedule/presentation/pages/pages.dart';
+import 'package:bntu_schedule/features/schedule/presentation/bloc/group_bloc.dart';
+import 'package:bntu_schedule/features/schedule/presentation/bloc/schedule_bloc.dart';
+import 'package:bntu_schedule/features/schedule/presentation/widgets/widgets.dart'
+    show ScheduleHeader, ScheduleBody;
+import 'package:bntu_schedule/injection.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nested/nested.dart';
 
 class SchedulePage extends StatelessWidget {
   const SchedulePage({
@@ -12,6 +18,21 @@ class SchedulePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScheduleView(groupNumber: groupNumber);
+    return MultiBlocProvider(
+      providers: <SingleChildWidget>[
+        BlocProvider<GroupBloc>(
+          create: (_) => sl<GroupBloc>(),
+        ),
+        BlocProvider<ScheduleBloc>(
+          create: (_) => sl<ScheduleBloc>(),
+        ),
+      ],
+      child: Scaffold(
+        appBar: const ScheduleHeader(),
+        body: SafeArea(
+          child: ScheduleBody(groupNumber: groupNumber),
+        ),
+      ),
+    );
   }
 }
