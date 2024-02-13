@@ -1,5 +1,5 @@
 import 'package:bntu_schedule/core/widgets/custom_app_bar.dart';
-import 'package:bntu_schedule/features/schedule/presentation/widgets/schedule_settings_page/schedule_settings_body.dart';
+import 'package:bntu_schedule/features/schedule/presentation/widgets/schedule_settings_body/schedule_settings_body.dart';
 import 'package:bntu_schedule/features/schedule/schedule.dart';
 import 'package:bntu_schedule/injection.dart';
 import 'package:flutter/material.dart';

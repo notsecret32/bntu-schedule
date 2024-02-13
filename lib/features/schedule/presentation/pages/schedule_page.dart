@@ -1,10 +1,12 @@
+import 'package:bntu_schedule/core/router/routes_list.dart';
+import 'package:bntu_schedule/core/widgets/custom_app_bar.dart';
 import 'package:bntu_schedule/features/schedule/presentation/bloc/group_bloc.dart';
 import 'package:bntu_schedule/features/schedule/presentation/bloc/schedule_bloc.dart';
-import 'package:bntu_schedule/features/schedule/presentation/widgets/widgets.dart'
-    show ScheduleHeader, ScheduleBody;
+import 'package:bntu_schedule/features/schedule/presentation/widgets/schedule_body/schedule_body.dart';
 import 'package:bntu_schedule/injection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:nested/nested.dart';
 
 class SchedulePage extends StatelessWidget {
@@ -28,7 +30,13 @@ class SchedulePage extends StatelessWidget {
         ),
       ],
       child: Scaffold(
-        appBar: const ScheduleHeader(),
+        appBar: CustomAppBar(
+          title: 'Расписание',
+          leadingIcon: Icons.settings,
+          onLeadingIconPress: () => context.pushNamed(
+            RoutesList.schedulesSettingsPage.name,
+          ),
+        ),
         body: SafeArea(
           child: ScheduleBody(groupNumber: groupNumber),
         ),

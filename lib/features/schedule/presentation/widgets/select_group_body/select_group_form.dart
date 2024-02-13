@@ -1,11 +1,11 @@
 import 'package:bntu_schedule/core/router/routes_list.dart';
 import 'package:bntu_schedule/core/widgets/widgets.dart';
 import 'package:bntu_schedule/features/schedule/presentation/bloc/group_bloc.dart';
-import 'package:bntu_schedule/features/schedule/presentation/widgets/widgets.dart'
-    show SelectGroupTextField;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+
+import './select_group_text_field.dart';
 
 class SelectGroupForm extends StatefulWidget {
   const SelectGroupForm({super.key});

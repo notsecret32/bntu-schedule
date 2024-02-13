@@ -1,5 +1,7 @@
-import 'package:bntu_schedule/features/schedule/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+
+import './select_group_footer.dart';
+import './select_group_form.dart';
 
 class SelectGroupBody extends StatelessWidget {
   const SelectGroupBody({super.key});
