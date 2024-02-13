@@ -1,13 +1,8 @@
-export 'group_number_entity.dart';
+export 'group_entity.dart';
 export 'group_schedule_entity.dart';
 export 'lesson_entity.dart';
 export 'lesson_name_entity.dart';
-export 'lesson_names_list_entity.dart';
+export 'lesson_teacher_entity.dart';
+export 'lesson_time_entity.dart';
 export 'lesson_type_entity.dart';
-export 'lesson_types_list_entity.dart';
-export 'schedule_entity.dart';
-export 'teacher_entity.dart';
-export 'teachers_list_entity.dart';
-export 'time_entity.dart';
 export 'translation_entity.dart';
-export 'week_day_entity.dart';

@@ -1,38 +1,70 @@
-import 'package:bntu_schedule/core/enums/enums.dart' show WeekTypesEnum;
-import 'package:bntu_schedule/features/schedule/domain/entities/entities.dart'
-    show WeekDayEntity;
+import 'package:bntu_schedule/core/enums/week_day_enum.dart';
+import 'package:bntu_schedule/features/schedule/domain/entities/lesson_entity.dart';
 import 'package:equatable/equatable.dart';
 
-/// An alias of the [Map] type, where the key is [WeekTypesEnum] and
-/// the value is [WeekDayEntity].
-typedef WeekTypesMap = Map<WeekTypesEnum, WeekDayEntity>;
-
-/// An entity that stores a schedule for each type of week per group.
+/// An entity that stores a schedule for each day of the week
+/// for a specific group.
 class GroupScheduleEntity extends Equatable {
   const GroupScheduleEntity({
-    required this.weeks,
+    this.monday,
+    this.tuesday,
+    this.wednesday,
+    this.thursday,
+    this.friday,
+    this.saturday,
+    this.sunday,
   });
 
-  /// An object that stores a schedule for certain types of weeks.
+  final List<LessonEntity>? monday;
+  final List<LessonEntity>? tuesday;
+  final List<LessonEntity>? wednesday;
+  final List<LessonEntity>? thursday;
+  final List<LessonEntity>? friday;
+  final List<LessonEntity>? saturday;
+  final List<LessonEntity>? sunday;
+
+  /// Operator overload for convenient operation with this class.
+  ///
+  /// Returns an object from this class of type [List].
+  ///
+  /// For example:
   ///
   /// ```dart
-  /// final example = GroupScheduleEntity(
-  ///   weeks: {
-  ///     WeekTypesEnum.firstWeek: WeekDayEntity(...),
-  ///     WeekTypesEnum.secondWeek: WeekDayEntity(...),
-  ///   },
-  /// );
+  /// // Some kind of schedule for the group
+  /// final schedule = GroupScheduleEntity(...);
+  ///
+  /// // schedule[WeekDayEnum.monday] == schedule.monday
+  /// final mondaySchedule = schedule[WeekDayEnum.monday];
+  ///
+  /// print(mondaySchedule.runtimeType); // List<LessonEntity>?
   /// ```
-  final WeekTypesMap weeks;
-
-  /// Creates a new instance of [GroupScheduleEntity] with the same
-  /// properties as this instance, but with the provided values.
-  GroupScheduleEntity copyWith({
-    WeekTypesMap? weeks,
-  }) {
-    return GroupScheduleEntity(weeks: weeks ?? this.weeks);
+  List<LessonEntity>? operator [](WeekDayEnum weekday) {
+    switch (weekday) {
+      case WeekDayEnum.monday:
+        return monday;
+      case WeekDayEnum.tuesday:
+        return tuesday;
+      case WeekDayEnum.wednesday:
+        return wednesday;
+      case WeekDayEnum.thursday:
+        return thursday;
+      case WeekDayEnum.friday:
+        return friday;
+      case WeekDayEnum.saturday:
+        return saturday;
+      case WeekDayEnum.sunday:
+        return sunday;
+    }
   }
 
   @override
-  List<WeekTypesMap> get props => <WeekTypesMap>[weeks];
+  List<Object?> get props => <Object?>[
+        monday,
+        tuesday,
+        wednesday,
+        thursday,
+        friday,
+        saturday,
+        sunday,
+      ];
 }
