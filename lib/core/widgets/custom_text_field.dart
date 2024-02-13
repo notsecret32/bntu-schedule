@@ -11,6 +11,8 @@ class CustomTextField extends StatelessWidget {
     this.validator,
     this.textFilter,
     this.textMaxLength,
+    this.enable = true,
+    this.inputType = TextInputType.number,
   });
 
   /// Text with a hint.
@@ -30,6 +32,12 @@ class CustomTextField extends StatelessWidget {
   /// Text filter for different characters.
   final TextInputFormatter? textFilter;
 
+  /// Indicates whether this widget is active or not.
+  final bool enable;
+
+  /// Type of keyboard.
+  final TextInputType inputType;
+
   /// Maximum number of characters.
   final int? textMaxLength;
 
@@ -45,6 +53,8 @@ class CustomTextField extends StatelessWidget {
       obscureText: isPassword ?? false,
       enableSuggestions: isPassword ?? true,
       autocorrect: isPassword ?? true,
+      readOnly: !enable,
+      keyboardType: inputType,
 
       /// ========== [Input Decoration] ==========
       decoration: InputDecoration(
