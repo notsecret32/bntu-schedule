@@ -1,8 +1,9 @@
 import 'package:bntu_schedule/core/utils/utils.dart';
 import 'package:bntu_schedule/core/widgets/widgets.dart';
-import 'package:bntu_schedule/features/schedule/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:week_of_year/week_of_year.dart';
+
+import './weekly_date_picker.dart';
 
 /// A composite widget that consists of two rows.
 ///
@@ -12,7 +13,10 @@ import 'package:week_of_year/week_of_year.dart';
 class WeekCalendar extends StatefulWidget {
   const WeekCalendar({
     super.key,
+    this.onDayChange,
   });
+
+  final Function(DateTime selectedDay)? onDayChange;
 
   @override
   State<WeekCalendar> createState() => _WeekCalendarState();
@@ -71,9 +75,15 @@ class _WeekCalendarState extends State<WeekCalendar> {
               fontWeight: FontWeight.w500,
             ),
             unselectedTextStyle: theme.textTheme.bodyMedium!,
-            onChangeDay: (DateTime value) => setState(() {
-              _selectedDay = value;
-            }),
+            onChangeDay: (DateTime value) {
+              setState(() {
+                _selectedDay = value;
+              });
+
+              if (widget.onDayChange != null) {
+                widget.onDayChange!(value);
+              }
+            },
             onSwipe: (int weekOfYear) => setState(() {
               _weekOfYear = weekOfYear;
             }),
