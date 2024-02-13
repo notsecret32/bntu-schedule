@@ -6,15 +6,18 @@ import 'package:flutter/material.dart';
 class SelectGroupBottomSheet extends StatelessWidget {
   const SelectGroupBottomSheet({
     super.key,
-    required this.textFieldController,
+    this.textFieldController,
     this.onButtonPressed,
+    this.enable = true,
   });
 
   /// Callback function when the button is pressed.
   final Function()? onButtonPressed;
 
   /// Text controller for a text field.
-  final TextEditingController textFieldController;
+  final TextEditingController? textFieldController;
+
+  final bool enable;
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +30,7 @@ class SelectGroupBottomSheet extends StatelessWidget {
             children: <Widget>[
               SelectGroupTextField(
                 controller: textFieldController,
+                enable: enable,
               ),
               const SizedBox(
                 height: 16,
@@ -34,6 +38,7 @@ class SelectGroupBottomSheet extends StatelessWidget {
               CustomButton(
                 text: 'Выбрать',
                 onPress: onButtonPressed,
+                enable: enable,
               ),
             ],
           ),

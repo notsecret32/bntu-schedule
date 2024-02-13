@@ -5,10 +5,12 @@ import 'package:flutter/services.dart';
 class SelectGroupTextField extends StatelessWidget {
   const SelectGroupTextField({
     super.key,
-    required this.controller,
+    this.controller,
+    this.enable = true,
   });
 
-  final TextEditingController controller;
+  final TextEditingController? controller;
+  final bool enable;
 
   @override
   Widget build(BuildContext context) {
