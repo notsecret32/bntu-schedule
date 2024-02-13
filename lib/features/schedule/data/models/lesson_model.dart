@@ -23,7 +23,6 @@ class LessonModel extends LessonEntity {
     Map<String, dynamic>? data,
   ) {
     // ========== [Time] ==========
-
     const Duration utcOffset = Duration(hours: 3);
     final DateTime defaultDateTime = DateTime(DateTime.now().year);
 
@@ -46,7 +45,6 @@ class LessonModel extends LessonEntity {
     );
 
     // ========== [Name] ==========
-
     const LessonNameModel defaultRuName = LessonNameModel(
       name: 'Нет названия',
     );
@@ -77,7 +75,6 @@ class LessonModel extends LessonEntity {
     );
 
     // ========== [Type] ==========
-
     const LessonTypeModel defaultRuType = LessonTypeModel(
       name: 'Нет типа',
     );
@@ -108,7 +105,6 @@ class LessonModel extends LessonEntity {
     );
 
     // ========== [Type] ==========
-
     const LessonTeacherModel defaultRuTeacher = LessonTeacherModel(
       firstName: 'Имя',
       secondName: 'Фамилия',
