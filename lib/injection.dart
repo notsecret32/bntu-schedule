@@ -5,6 +5,8 @@ import 'package:bntu_schedule/features/admin/data/repositories/repositories.dart
 import 'package:bntu_schedule/features/admin/domain/repositories/repositories.dart';
 import 'package:bntu_schedule/features/admin/domain/usecases/usecases.dart';
 import 'package:bntu_schedule/features/admin/presentation/cubit/admin_authentication_cubit.dart';
+import 'package:bntu_schedule/features/schedule/presentation/bloc/schedule_bloc.dart';
+import 'package:bntu_schedule/features/schedule/schedule.dart';
 import 'package:bntu_schedule/features/welcome/data/datasources/datasources.dart';
 import 'package:bntu_schedule/features/welcome/data/repositories/repositories.dart';
 import 'package:bntu_schedule/features/welcome/domain/repositories/repositories.dart';
@@ -81,6 +83,26 @@ Future<void> initializeInjection() async {
     ),
   );
 
+  /// [Group]
+  sl.registerLazySingleton<GroupRemoteDataSource>(
+    () => GroupRemoteDataSourceImpl(
+      firestore: sl(),
+    ),
+  );
+
+  sl.registerLazySingleton<GroupLocalDataSource>(
+    () => GroupLocalDataSourceImpl(
+      sharedPreferences: sl(),
+    ),
+  );
+
+  /// [Schedule]
+  sl.registerLazySingleton<ScheduleRemoteDataSource>(
+    () => ScheduleRemoteDataSourceImpl(
+      firestore: sl(),
+    ),
+  );
+
   /// [Welcome]
   sl.registerLazySingleton<WelcomeLocalDataSource>(
     () => WelcomeLocalDataSourceImpl(
@@ -93,6 +115,22 @@ Future<void> initializeInjection() async {
   sl.registerLazySingleton<AdminAuthenticationRepository>(
     () => AdminAuthenticationRepositoryImpl(
       networkInfo: sl(),
+      remoteDataSource: sl(),
+    ),
+  );
+
+  /// [Group]
+  sl.registerLazySingleton<GroupRepository>(
+    () => GroupRepositoryImpl(
+      remoteDataSource: sl(),
+      localDataSource: sl(),
+      networkInfo: sl(),
+    ),
+  );
+
+  /// [Schedule]
+  sl.registerLazySingleton<ScheduleRepository>(
+    () => ScheduleRepositoryImpl(
       remoteDataSource: sl(),
     ),
   );
@@ -117,6 +155,32 @@ Future<void> initializeInjection() async {
     ),
   );
 
+  /// [Group]
+  sl.registerLazySingleton<SelectGroupNumberUseCase>(
+    () => SelectGroupNumberUseCase(
+      groupRepository: sl(),
+    ),
+  );
+
+  sl.registerLazySingleton<GetSelectedGroupNumberUseCase>(
+    () => GetSelectedGroupNumberUseCase(
+      groupRepository: sl(),
+    ),
+  );
+
+  sl.registerLazySingleton<RemoveSelectedGroupNumberUseCase>(
+    () => RemoveSelectedGroupNumberUseCase(
+      groupRepository: sl(),
+    ),
+  );
+
+  /// [Schedule]
+  sl.registerLazySingleton<GetScheduleByGroupNumberUseCase>(
+    () => GetScheduleByGroupNumberUseCase(
+      scheduleRepository: sl(),
+    ),
+  );
+
   /// [Welcome]
   sl.registerLazySingleton<SetWelcomePageViewedUseCase>(
     () => SetWelcomePageViewedUseCase(
@@ -128,6 +192,16 @@ Future<void> initializeInjection() async {
   /// [Admin Login]
   sl.registerFactory<AdminAuthenticationCubit>(
     AdminAuthenticationCubit.new,
+  );
+
+  /// [Group]
+  sl.registerFactory<GroupBloc>(
+    GroupBloc.new,
+  );
+
+  /// [Schedule]
+  sl.registerFactory<ScheduleBloc>(
+    ScheduleBloc.new,
   );
 
   /// [Welcome]
