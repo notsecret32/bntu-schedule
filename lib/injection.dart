@@ -15,6 +15,7 @@ import 'package:bntu_schedule/features/welcome/presentation/cubit/welcome_action
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -34,6 +35,9 @@ Future<void> initializeInjection() async {
   sl.registerLazySingleton<FirebaseAuth>(() => FirebaseAuth.instance);
   sl.registerLazySingleton<FirebaseAppCheck>(() => FirebaseAppCheck.instance);
   sl.registerLazySingleton<FirebaseFirestore>(() => FirebaseFirestore.instance);
+
+  /// [Firebase Analytics]
+  sl.registerSingleton<FirebaseCrashlytics>(FirebaseCrashlytics.instance);
 
   /// [Shared Preferences]
   sl.registerSingletonAsync<SharedPreferences>(
