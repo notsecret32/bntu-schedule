@@ -1,6 +1,7 @@
 import 'package:bntu_schedule/core/enums/week_day_enum.dart';
 import 'package:bntu_schedule/features/schedule/presentation/bloc/schedule_bloc.dart';
-import 'package:bntu_schedule/features/schedule/presentation/widgets/widgets.dart';
+import 'package:bntu_schedule/features/schedule/presentation/widgets/widgets.dart'
+    show WeekCalendar, ScheduleViewer;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:week_of_year/week_of_year.dart';

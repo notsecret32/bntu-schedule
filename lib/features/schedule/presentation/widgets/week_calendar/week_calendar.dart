@@ -1,5 +1,5 @@
-import 'package:bntu_schedule/core/utils/utils.dart';
-import 'package:bntu_schedule/core/widgets/widgets.dart';
+import 'package:bntu_schedule/core/utils/compare_dates.dart';
+import 'package:bntu_schedule/core/widgets/custom_container.dart';
 import 'package:flutter/material.dart';
 import 'package:week_of_year/week_of_year.dart';
 
