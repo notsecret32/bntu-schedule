@@ -37,6 +37,7 @@ dependencies:
   nested: ^1.0.0
   firebase_crashlytics: ^3.4.14
   firebase_analytics: ^10.8.5
+  firebase_performance: ^0.9.3+13
 
 dev_dependencies:
   flutter_test:
