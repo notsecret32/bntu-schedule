@@ -7,17 +7,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
   // Loading data from the .env file
   await dotenv.load();
+
+  // Setting up Firebase
+  await initializeFirebaseApp();
 
   // Initializing the injection
   await initializeInjection();
 
+  // Initializing the Firebase modules
+  await initializeFirebaseModules();
+
   // Initializing logging
   await initializeLoggers();
-
-  // Setting up Firebase
-  await initializeFirebaseApp();
 
   // Run the app
   runApp(const BntuScheduleApp());
