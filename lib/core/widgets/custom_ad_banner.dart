@@ -59,8 +59,6 @@ class _CustomAdBannerState extends State<CustomAdBanner> {
         },
       ),
       request: const AdRequest(),
-    );
-
-    _bannerAd.load();
+    )..load();
   }
 }
