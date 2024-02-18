@@ -2,7 +2,7 @@ name: bntu_schedule
 description:
   'The mobile part of the application for viewing the schedule of couples at the
   BNTU University.'
-version: 0.4.0+2
+version: 0.4.0+3
 publish_to: 'none'
 
 environment:
