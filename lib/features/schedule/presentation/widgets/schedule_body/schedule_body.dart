@@ -1,4 +1,5 @@
 import 'package:bntu_schedule/core/enums/week_day_enum.dart';
+import 'package:bntu_schedule/core/widgets/custom_ad_banner.dart';
 import 'package:bntu_schedule/features/schedule/presentation/bloc/schedule_bloc.dart';
 import 'package:bntu_schedule/features/schedule/presentation/widgets/widgets.dart'
     show WeekCalendar, ScheduleViewer;
@@ -61,6 +62,7 @@ class _ScheduleBodyState extends State<ScheduleBody> {
               },
             ),
           ),
+          const CustomAdBanner(),
         ],
       ),
     );

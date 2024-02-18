@@ -5,12 +5,16 @@ import 'package:bntu_schedule/core/theme/theme.dart';
 import 'package:bntu_schedule/injection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   // Loading data from the .env file
   await dotenv.load();
+
+  // Initializing the AdMob
+  MobileAds.instance.initialize();
 
   // Setting up Firebase
   await initializeFirebaseApp();
