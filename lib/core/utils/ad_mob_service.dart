@@ -7,4 +7,10 @@ class AdMobService {
         ? dotenv.env['TEST_AD_BANNER_ID']!
         : dotenv.env['ANDROID_AD_BANNER_ID']!;
   }
+
+  static String get interstitialAdId {
+    return kDebugMode
+        ? dotenv.env['TEST_AD_INTERSTITIAL_ID']!
+        : dotenv.env['ANDROID_AD_INTERSTITIAL_ID']!;
+  }
 }
