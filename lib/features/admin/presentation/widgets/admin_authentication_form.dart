@@ -39,6 +39,7 @@ class _AdminAuthenticationFormState extends State<AdminAuthenticationForm> {
               hintText: 'Логин',
               controller: _emailTextController,
               validator: _loginValidator,
+              inputType: TextInputType.emailAddress,
             ),
             const SizedBox(
               height: 16,
@@ -47,6 +48,7 @@ class _AdminAuthenticationFormState extends State<AdminAuthenticationForm> {
               hintText: 'Пароль',
               controller: _passwordTextController,
               validator: _passwordValidator,
+              inputType: TextInputType.visiblePassword,
               isPassword: true,
             ),
             const SizedBox(
