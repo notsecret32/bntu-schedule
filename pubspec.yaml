@@ -2,7 +2,7 @@ name: bntu_schedule
 description:
   'The mobile part of the application for viewing the schedule of couples at the
   BNTU University.'
-version: 0.0.1+1
+version: 0.4.0+3
 publish_to: 'none'
 
 environment:
@@ -38,6 +38,7 @@ dependencies:
   firebase_crashlytics: ^3.4.14
   firebase_analytics: ^10.8.5
   firebase_performance: ^0.9.3+13
+  google_mobile_ads: ^4.0.0
 
 dev_dependencies:
   flutter_test:

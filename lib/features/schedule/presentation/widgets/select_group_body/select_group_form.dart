@@ -44,25 +44,32 @@ class _SelectGroupFormState extends State<SelectGroupForm> {
             );
           }
         },
-        child: Column(
-          children: <Widget>[
-            SelectGroupTextField(
-              controller: _controller,
-            ),
-            const SizedBox(
-              height: 16,
-            ),
-            CustomButton(
-              text: 'Выбрать',
-              onPress: () async {
-                if (_formKey.currentState!.validate()) {
-                  context
-                      .read<GroupBloc>()
-                      .add(SelectGroupEvent(groupNumber: _controller.text));
-                }
-              },
-            ),
-          ],
+        child: Container(
+          padding: const EdgeInsets.only(
+            left: 16,
+            top: 16,
+            right: 16,
+          ),
+          child: Column(
+            children: <Widget>[
+              SelectGroupTextField(
+                controller: _controller,
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              CustomButton(
+                text: 'Выбрать',
+                onPress: () async {
+                  if (_formKey.currentState!.validate()) {
+                    context
+                        .read<GroupBloc>()
+                        .add(SelectGroupEvent(groupNumber: _controller.text));
+                  }
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );

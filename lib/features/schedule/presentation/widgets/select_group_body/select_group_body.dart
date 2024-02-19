@@ -1,3 +1,4 @@
+import 'package:bntu_schedule/core/widgets/custom_ad_banner.dart';
 import 'package:flutter/material.dart';
 
 import './select_group_footer.dart';
@@ -9,17 +10,20 @@ class SelectGroupBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(
-        left: 16,
-        top: 16,
-        right: 16,
-        bottom: 35,
-      ),
       child: const Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           SelectGroupForm(),
-          SelectGroupFooter(),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              SelectGroupFooter(),
+              SizedBox(
+                height: 16,
+              ),
+              CustomAdBanner(),
+            ],
+          ),
         ],
       ),
     );

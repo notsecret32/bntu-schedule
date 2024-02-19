@@ -1,4 +1,5 @@
 import 'package:bntu_schedule/core/utils/compare_dates.dart';
+import 'package:bntu_schedule/core/widgets/custom_ad_interstitial.dart';
 import 'package:bntu_schedule/core/widgets/custom_container.dart';
 import 'package:flutter/material.dart';
 import 'package:week_of_year/week_of_year.dart';
@@ -23,11 +24,19 @@ class WeekCalendar extends StatefulWidget {
 }
 
 class _WeekCalendarState extends State<WeekCalendar> {
+  final CustomAdInterstitial _adInterstitial = CustomAdInterstitial();
+
   /// Selected day of the week.
   DateTime _selectedDay = DateTime.now();
 
   /// The number of the week in the year.
   int _weekOfYear = DateTime.now().weekOfYear;
+
+  @override
+  void dispose() {
+    _adInterstitial.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -83,6 +92,8 @@ class _WeekCalendarState extends State<WeekCalendar> {
               if (widget.onDayChange != null) {
                 widget.onDayChange!(value);
               }
+
+              _adInterstitial.show();
             },
             onSwipe: (int weekOfYear) => setState(() {
               _weekOfYear = weekOfYear;
