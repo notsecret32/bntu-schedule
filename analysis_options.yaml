@@ -12,6 +12,7 @@ analyzer:
     - '**/*.freezed.dart'
     - tools
     - test/**/test_data.dart
+    - lib/generated
 
 linter:
   rules:
