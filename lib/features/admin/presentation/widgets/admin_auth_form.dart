@@ -1,20 +1,19 @@
 import 'package:bntu_schedule/core/router/routes_list.dart';
 import 'package:bntu_schedule/core/widgets/widgets.dart';
-import 'package:bntu_schedule/features/admin/presentation/cubit/admin_authentication_cubit.dart';
+import 'package:bntu_schedule/features/admin/presentation/cubit/admin_auth_cubit.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-class AdminAuthenticationForm extends StatefulWidget {
-  const AdminAuthenticationForm({super.key});
+class AdminAuthForm extends StatefulWidget {
+  const AdminAuthForm({super.key});
 
   @override
-  State<AdminAuthenticationForm> createState() =>
-      _AdminAuthenticationFormState();
+  State<AdminAuthForm> createState() => _AdminAuthFormState();
 }
 
-class _AdminAuthenticationFormState extends State<AdminAuthenticationForm> {
+class _AdminAuthFormState extends State<AdminAuthForm> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController _emailTextController = TextEditingController();
   final TextEditingController _passwordTextController = TextEditingController();
@@ -76,7 +75,7 @@ class _AdminAuthenticationFormState extends State<AdminAuthenticationForm> {
 
   Future<void> _onLoginButtonPressed() async {
     if (_formKey.currentState!.validate()) {
-      await context.read<AdminAuthenticationCubit>().login(
+      await context.read<AdminAuthCubit>().login(
             email: _emailTextController.text,
             password: _passwordTextController.text,
           );

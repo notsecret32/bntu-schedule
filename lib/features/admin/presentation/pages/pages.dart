@@ -1,3 +1,2 @@
-export 'admin_authentication_page.dart';
-export 'admin_panel_page.dart';
-export 'admin_panel_view.dart';
+export 'admin_auth_page.dart';
+export 'admin_home_page.dart';
