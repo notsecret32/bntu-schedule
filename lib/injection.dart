@@ -4,7 +4,7 @@ import 'package:bntu_schedule/features/admin/data/datasources/admin_authenticati
 import 'package:bntu_schedule/features/admin/data/repositories/repositories.dart';
 import 'package:bntu_schedule/features/admin/domain/repositories/repositories.dart';
 import 'package:bntu_schedule/features/admin/domain/usecases/usecases.dart';
-import 'package:bntu_schedule/features/admin/presentation/cubit/admin_authentication_cubit.dart';
+import 'package:bntu_schedule/features/admin/presentation/cubit/admin_auth_cubit.dart';
 import 'package:bntu_schedule/features/schedule/presentation/bloc/schedule_bloc.dart';
 import 'package:bntu_schedule/features/schedule/schedule.dart';
 import 'package:bntu_schedule/features/welcome/data/datasources/datasources.dart';
@@ -194,8 +194,8 @@ Future<void> initializeInjection() async {
 
   /// ========== [Bloc & Cubit] ==========
   /// [Admin Login]
-  sl.registerFactory<AdminAuthenticationCubit>(
-    AdminAuthenticationCubit.new,
+  sl.registerFactory<AdminAuthCubit>(
+    AdminAuthCubit.new,
   );
 
   /// [Group]

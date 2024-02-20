@@ -9,17 +9,17 @@ import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-part 'admin_authentication_state.dart';
+part 'admin_auth_state.dart';
 
-class AdminAuthenticationCubit extends Cubit<AdminAuthenticationState> {
-  AdminAuthenticationCubit() : super(AdminAuthenticationInitialState());
+class AdminAuthCubit extends Cubit<AdminAuthState> {
+  AdminAuthCubit() : super(AdminAuthInitialState());
 
   Future<UserCredential> login({
     required String email,
     required String password,
   }) async {
     try {
-      emit(AdminAuthenticationLoadingState());
+      emit(AdminAuthLoggingInState());
 
       final Either<Failure, UserCredential> admin =
           await sl<LoginUseCase>().call(
@@ -32,7 +32,7 @@ class AdminAuthenticationCubit extends Cubit<AdminAuthenticationState> {
       final UserCredential userCredential = admin.fold(
         (Failure error) {
           emit(
-            AdminAuthenticationFailureState(
+            AdminAuthFailureState(
               error: error.toString(),
             ),
           );
@@ -40,7 +40,7 @@ class AdminAuthenticationCubit extends Cubit<AdminAuthenticationState> {
         },
         (UserCredential admin) {
           emit(
-            AdminAuthenticationLoadedState(),
+            AdminAuthLoggedInState(),
           );
           return admin;
         },
@@ -48,7 +48,7 @@ class AdminAuthenticationCubit extends Cubit<AdminAuthenticationState> {
       return userCredential;
     } catch (error) {
       emit(
-        AdminAuthenticationFailureState(
+        AdminAuthFailureState(
           error: error.toString(),
         ),
       );
@@ -58,7 +58,7 @@ class AdminAuthenticationCubit extends Cubit<AdminAuthenticationState> {
 
   Future<void> logout() async {
     try {
-      emit(AdminAuthenticationLoadingState());
+      emit(AdminAuthLoggingOutState());
 
       final Either<Failure, void> result = await sl<LogoutUseCase>().call(
         NoParams(),
@@ -67,20 +67,20 @@ class AdminAuthenticationCubit extends Cubit<AdminAuthenticationState> {
       result.fold(
         (Failure error) {
           emit(
-            AdminAuthenticationFailureState(
+            AdminAuthFailureState(
               error: error.toString(),
             ),
           );
         },
         (_) {
           emit(
-            AdminAuthenticationLoadedState(),
+            AdminAuthLoggedOutState(),
           );
         },
       );
     } catch (error) {
       emit(
-        AdminAuthenticationFailureState(
+        AdminAuthFailureState(
           error: error.toString(),
         ),
       );

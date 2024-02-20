@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class AdminPanelBody extends StatelessWidget {
-  const AdminPanelBody({super.key});
+class AdminHomeBody extends StatelessWidget {
+  const AdminHomeBody({super.key});
 
   @override
   Widget build(BuildContext context) {

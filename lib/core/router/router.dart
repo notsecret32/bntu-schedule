@@ -1,6 +1,6 @@
 import 'package:bntu_schedule/core/router/routes_list.dart';
-import 'package:bntu_schedule/features/admin/presentation/pages/admin_authentication_page.dart';
-import 'package:bntu_schedule/features/admin/presentation/pages/admin_panel_page.dart';
+import 'package:bntu_schedule/features/admin/presentation/pages/admin_auth_page.dart';
+import 'package:bntu_schedule/features/admin/presentation/pages/admin_home_page.dart';
 import 'package:bntu_schedule/features/schedule/presentation/pages/pages.dart';
 import 'package:bntu_schedule/features/welcome/presentation/pages/pages.dart';
 import 'package:flutter/material.dart';
@@ -41,13 +41,13 @@ final GoRouter appGoRouter = GoRouter(
       path: RoutesList.adminPanelPage.path,
       redirect: RoutesList.adminPanelPage.redirect,
       builder: (BuildContext context, GoRouterState state) =>
-          const AdminSchedulePage(),
+          const AdminHomePage(),
       routes: <RouteBase>[
         GoRoute(
           name: RoutesList.adminAuthenticationPage.name,
           path: RoutesList.adminAuthenticationPage.path,
           builder: (BuildContext context, GoRouterState state) =>
-              const AdminAuthenticationPage(),
+              const AdminAuthPage(),
         ),
       ],
     ),
