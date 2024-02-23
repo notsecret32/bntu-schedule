@@ -52,7 +52,7 @@ class _ScheduleBodyState extends State<ScheduleBody> {
                   return ScheduleViewer(
                     schedule: state.schedule,
                     weekday: WeekDayEnum.values[_selectedDay.weekday - 1],
-                    weekType: _selectedDay.weekOfYear % 2,
+                    weekType: _selectedDay.weekOfYear % 2 == 0 ? 2 : 1,
                   );
                 }
 

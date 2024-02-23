@@ -34,14 +34,17 @@ class ScheduleViewer extends StatelessWidget {
             itemCount: weekDaySchedule.length,
             shrinkWrap: true,
             separatorBuilder: (BuildContext context, int index) {
-              return const SizedBox(
-                height: 8,
-              );
+              if (!_isThisAnExceptionalWeek(weekDaySchedule, index)) {
+                return const SizedBox(
+                  height: 8,
+                );
+              }
+
+              return const SizedBox.shrink();
             },
             itemBuilder: (BuildContext context, int index) {
-              if (weekDaySchedule[index].excludeWeekType != null &&
-                  weekDaySchedule[index].excludeWeekType == weekType) {
-                return Container();
+              if (_isThisAnExceptionalWeek(weekDaySchedule, index)) {
+                return const SizedBox.shrink();
               }
 
               return LessonItem(
@@ -50,5 +53,15 @@ class ScheduleViewer extends StatelessWidget {
               );
             },
           );
+  }
+
+  bool _isThisAnExceptionalWeek(
+    List<LessonEntity> weekDaySchedule,
+    int index,
+  ) {
+    return weekDaySchedule[index].excludeWeekType != null &&
+            weekDaySchedule[index].excludeWeekType == weekType
+        ? true
+        : false;
   }
 }
