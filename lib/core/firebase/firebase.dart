@@ -1,13 +1,14 @@
 import 'dart:io';
 
-import 'package:bntu_schedule/core/config/firebase_options.dart';
-import 'package:bntu_schedule/injection.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:talker_flutter/talker_flutter.dart';
+
+import '../../injection.dart';
+import '../config/firebase_options.dart';
 
 /// Initializes the [Firebase] application.
 Future<void> initializeFirebaseApp() async {

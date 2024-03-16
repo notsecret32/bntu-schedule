@@ -1,20 +1,18 @@
-import 'package:bntu_schedule/core/firebase/firebase.dart';
-import 'package:bntu_schedule/core/logging/logging.dart';
-import 'package:bntu_schedule/core/router/router.dart';
-import 'package:bntu_schedule/core/theme/theme.dart';
-import 'package:bntu_schedule/injection.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
+
+import 'core/firebase/firebase.dart';
+import 'core/logging/logging.dart';
+import 'core/router/router.dart';
+import 'injection.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   // Loading data from the .env file
   await dotenv.load();
-
-  // Initializing the AdMob
-  MobileAds.instance.initialize();
 
   // Setting up Firebase
   await initializeFirebaseApp();
@@ -35,21 +33,24 @@ Future<void> main() async {
 /// The main application.
 ///
 /// The main application that runs in the `main` method.
-class BntuScheduleApp extends StatefulWidget {
+class BntuScheduleApp extends StatelessWidget {
   const BntuScheduleApp({super.key});
 
   @override
-  State<BntuScheduleApp> createState() => _BntuScheduleAppState();
-}
-
-class _BntuScheduleAppState extends State<BntuScheduleApp> {
-  @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-      title: 'БНТУ Расписание',
-      theme: themeData,
-      routerConfig: appGoRouter,
+    return PlatformProvider(
+      builder: (BuildContext context) => PlatformTheme(
+        builder: (BuildContext context) => PlatformApp.router(
+          debugShowCheckedModeBanner: false,
+          localizationsDelegates: const <LocalizationsDelegate<dynamic>>[
+            DefaultMaterialLocalizations.delegate,
+            DefaultWidgetsLocalizations.delegate,
+            DefaultCupertinoLocalizations.delegate,
+          ],
+          title: 'Flutter Platform Widgets',
+          routerConfig: router,
+        ),
+      ),
     );
   }
 }
