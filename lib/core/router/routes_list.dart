@@ -36,21 +36,6 @@ class RoutesList {
     fullPath: '/schedules/settings',
   );
 
-  /// The admin panel page.
-  static final CustomGoRouteData adminPanelPage = CustomGoRouteData(
-    path: '/admin',
-    name: 'admin-panel',
-    fullPath: '/admin',
-    redirect: sl<AdminAuthenticationRedirect>(),
-  );
-
-  /// The admin's authorization page.
-  static final CustomGoRouteData adminAuthenticationPage = CustomGoRouteData(
-    path: 'auth',
-    name: 'admin-auth',
-    fullPath: '/admin/auth',
-  );
-
   /// A method that builds a string to get the path to the schedule of
   /// a certain group.
   static String navigateToSelectedGroup(String selectedGroupNumber) {

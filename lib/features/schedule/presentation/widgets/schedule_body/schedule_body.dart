@@ -1,8 +1,7 @@
 import 'package:bntu_schedule/core/enums/week_day_enum.dart';
-import 'package:bntu_schedule/core/widgets/custom_ad_banner.dart';
 import 'package:bntu_schedule/features/schedule/presentation/bloc/schedule_bloc.dart';
-import 'package:bntu_schedule/features/schedule/presentation/widgets/widgets.dart'
-    show WeekCalendar, ScheduleViewer;
+import 'package:bntu_schedule/features/schedule/presentation/widgets/schedule_viewer/schedule_viewer.dart';
+import 'package:custom_widgets/widgets.dart' show CustomWeeklyCalendar;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:week_of_year/week_of_year.dart';
@@ -35,8 +34,8 @@ class _ScheduleBodyState extends State<ScheduleBody> {
       onRefresh: () async => await _getScheduleForGroup(),
       child: Column(
         children: <Widget>[
-          WeekCalendar(
-            onDayChange: (DateTime selectedDay) => setState(
+          CustomWeeklyCalendar(
+            onDayChanged: (DateTime selectedDay) => setState(
               () => _selectedDay = selectedDay,
             ),
           ),
@@ -45,24 +44,25 @@ class _ScheduleBodyState extends State<ScheduleBody> {
           ),
           Expanded(
             child: BlocBuilder<ScheduleBloc, ScheduleState>(
-              buildWhen: (_, ScheduleState current) =>
-                  current is ScheduleLoadedState,
               builder: (BuildContext context, ScheduleState state) {
+                if (state is ScheduleLoadingState) {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+
                 if (state is ScheduleLoadedState) {
                   return ScheduleViewer(
                     schedule: state.schedule,
                     weekday: WeekDayEnum.values[_selectedDay.weekday - 1],
-                    weekType: _selectedDay.weekOfYear % 2,
+                    weekType: _selectedDay.weekOfYear % 2 == 0 ? 2 : 1,
                   );
                 }
 
-                return const Center(
-                  child: CircularProgressIndicator(),
-                );
+                return ScheduleViewer.empty();
               },
             ),
           ),
-          const CustomAdBanner(),
         ],
       ),
     );

@@ -1,10 +1,5 @@
 import 'package:bntu_schedule/core/network/network_info.dart';
 import 'package:bntu_schedule/core/router/redirects/redirects.dart';
-import 'package:bntu_schedule/features/admin/data/datasources/admin_authentication_remote_data_source.dart';
-import 'package:bntu_schedule/features/admin/data/repositories/repositories.dart';
-import 'package:bntu_schedule/features/admin/domain/repositories/repositories.dart';
-import 'package:bntu_schedule/features/admin/domain/usecases/usecases.dart';
-import 'package:bntu_schedule/features/admin/presentation/cubit/admin_authentication_cubit.dart';
 import 'package:bntu_schedule/features/schedule/presentation/bloc/schedule_bloc.dart';
 import 'package:bntu_schedule/features/schedule/schedule.dart';
 import 'package:bntu_schedule/features/welcome/data/datasources/datasources.dart';
@@ -14,7 +9,6 @@ import 'package:bntu_schedule/features/welcome/domain/usecases/set_welcome_page_
 import 'package:bntu_schedule/features/welcome/presentation/cubit/welcome_actions_cubit.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_app_check/firebase_app_check.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
@@ -32,7 +26,6 @@ Future<void> initializeInjection() async {
   sl.registerSingleton<Talker>(TalkerFlutter.init());
 
   /// [Firebase]
-  sl.registerLazySingleton<FirebaseAuth>(() => FirebaseAuth.instance);
   sl.registerLazySingleton<FirebaseAppCheck>(() => FirebaseAppCheck.instance);
   sl.registerLazySingleton<FirebaseFirestore>(() => FirebaseFirestore.instance);
 
@@ -57,13 +50,6 @@ Future<void> initializeInjection() async {
   );
 
   /// ========== [Router Redirects] ==========
-  /// [AdminAuthenticationRedirect]
-  sl.registerLazySingleton<AdminAuthenticationRedirect>(
-    () => AdminAuthenticationRedirect(
-      auth: sl(),
-    ),
-  );
-
   /// [GroupNumberMustBeSelected]
   sl.registerLazySingleton<GroupNumberMustBeSelected>(
     () => GroupNumberMustBeSelected(
@@ -74,19 +60,11 @@ Future<void> initializeInjection() async {
   /// [HasWelcomePageViewedGuard]
   sl.registerLazySingleton<HasWelcomePageViewedRedirect>(
     () => HasWelcomePageViewedRedirect(
-      auth: sl(),
       sharedPreferences: sl(),
     ),
   );
 
   /// ========== [Data Sources] ==========
-  /// [Auth]
-  sl.registerLazySingleton<AdminAuthenticationRemoteDataSource>(
-    () => AdminAuthenticationRemoteDataSourceImpl(
-      auth: sl(),
-    ),
-  );
-
   /// [Group]
   sl.registerLazySingleton<GroupRemoteDataSource>(
     () => GroupRemoteDataSourceImpl(
@@ -115,14 +93,6 @@ Future<void> initializeInjection() async {
   );
 
   /// ========== [Repositories] ==========
-  /// [Auth]
-  sl.registerLazySingleton<AdminAuthenticationRepository>(
-    () => AdminAuthenticationRepositoryImpl(
-      networkInfo: sl(),
-      remoteDataSource: sl(),
-    ),
-  );
-
   /// [Group]
   sl.registerLazySingleton<GroupRepository>(
     () => GroupRepositoryImpl(
@@ -147,19 +117,6 @@ Future<void> initializeInjection() async {
   );
 
   /// ========== [UseCases] ==========
-  /// [Auth]
-  sl.registerLazySingleton<LoginUseCase>(
-    () => LoginUseCase(
-      authRepository: sl(),
-    ),
-  );
-  sl.registerLazySingleton<LogoutUseCase>(
-    () => LogoutUseCase(
-      authRepository: sl(),
-    ),
-  );
-
-  /// [Group]
   sl.registerLazySingleton<SelectGroupNumberUseCase>(
     () => SelectGroupNumberUseCase(
       groupRepository: sl(),
@@ -193,11 +150,6 @@ Future<void> initializeInjection() async {
   );
 
   /// ========== [Bloc & Cubit] ==========
-  /// [Admin Login]
-  sl.registerFactory<AdminAuthenticationCubit>(
-    AdminAuthenticationCubit.new,
-  );
-
   /// [Group]
   sl.registerFactory<GroupBloc>(
     GroupBloc.new,

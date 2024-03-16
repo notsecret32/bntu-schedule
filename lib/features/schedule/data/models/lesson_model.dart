@@ -23,7 +23,6 @@ class LessonModel extends LessonEntity {
     Map<String, dynamic>? data,
   ) {
     // ========== [Time] ==========
-    const Duration utcOffset = Duration(hours: 3);
     final DateTime defaultDateTime = DateTime(DateTime.now().year);
 
     late final DateTime start;
@@ -35,8 +34,8 @@ class LessonModel extends LessonEntity {
       start = defaultDateTime;
       end = defaultDateTime;
     } else {
-      start = timeData['start'].toDate().add(utcOffset) ?? defaultDateTime;
-      end = timeData['end'].toDate().add(utcOffset) ?? defaultDateTime;
+      start = timeData['start'].toDate() ?? defaultDateTime;
+      end = timeData['end'].toDate() ?? defaultDateTime;
     }
 
     final LessonTimeModel time = LessonTimeModel(

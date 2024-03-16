@@ -1,9 +1,9 @@
 import 'package:bntu_schedule/core/router/routes_list.dart';
-import 'package:bntu_schedule/core/widgets/custom_app_bar.dart';
 import 'package:bntu_schedule/features/schedule/presentation/bloc/group_bloc.dart';
 import 'package:bntu_schedule/features/schedule/presentation/bloc/schedule_bloc.dart';
 import 'package:bntu_schedule/features/schedule/presentation/widgets/schedule_body/schedule_body.dart';
 import 'package:bntu_schedule/injection.dart';
+import 'package:custom_widgets/widgets.dart' show CustomAppBar;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -33,7 +33,7 @@ class SchedulePage extends StatelessWidget {
         appBar: CustomAppBar(
           title: 'Расписание',
           leadingIcon: Icons.settings,
-          onLeadingIconPress: () => context.pushNamed(
+          onLeadingIconPressed: () => context.pushNamed(
             RoutesList.schedulesSettingsPage.name,
           ),
         ),
