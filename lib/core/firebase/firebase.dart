@@ -4,7 +4,6 @@ import 'package:bntu_schedule/core/config/firebase_options.dart';
 import 'package:bntu_schedule/injection.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_app_check/firebase_app_check.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
@@ -52,23 +51,8 @@ Future<void> initializeFirebaseModules() async {
 
   // Loading Firebase Emulators
   if (const bool.fromEnvironment('FIREBASE_USE_EMU')) {
-    await _configureFirebaseAuth();
     _configureFirebaseFirestore();
   }
-}
-
-Future<void> _configureFirebaseAuth() async {
-  const String configHost = String.fromEnvironment('FIREBASE_EMU_URL');
-  const int configPort = int.fromEnvironment('AUTH_EMU_URL');
-
-  // Android Emulator must be pointed to 10.0.2.2
-  final String defaultHost = Platform.isAndroid ? '10.0.2.2' : 'localhost';
-  final String host = configHost.isNotEmpty ? configHost : defaultHost;
-  const int port = configPort != 0 ? configPort : 9099;
-
-  await sl<FirebaseAuth>().useAuthEmulator(host, port);
-
-  sl<Talker>().info('Using Firebase Auth emulator on: $host:$port');
 }
 
 void _configureFirebaseFirestore() {

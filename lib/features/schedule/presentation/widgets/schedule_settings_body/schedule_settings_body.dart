@@ -1,7 +1,7 @@
 import 'package:bntu_schedule/core/router/routes_list.dart';
-import 'package:bntu_schedule/core/widgets/widgets.dart'
-    show CustomButton, CustomSnackBarViewer;
 import 'package:bntu_schedule/features/schedule/presentation/bloc/group_bloc.dart';
+import 'package:custom_widgets/widgets.dart'
+    show CustomButton, CustomSnackBarViewer;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -20,7 +20,7 @@ class ScheduleSettingsBody extends StatelessWidget {
             CustomSnackBarViewer.showSnackBar(
               context: context,
               text: state.message,
-              isError: true,
+              error: true,
             );
           }
 
@@ -35,7 +35,7 @@ class ScheduleSettingsBody extends StatelessWidget {
               CustomButton(
                 text: 'Выйти с группы',
                 backgroundColor: Colors.red,
-                onPress: () async {
+                onPressed: () async {
                   context
                       .read<GroupBloc>()
                       .add(RemoveSelectedGroupNumberEvent());

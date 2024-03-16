@@ -241,6 +241,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.6"
+  custom_widgets:
+    dependency: "direct main"
+    description:
+      path: custom-widgets
+      relative: true
+    source: path
+    version: "0.0.1"
   dart_style:
     dependency: transitive
     description:
@@ -257,22 +264,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.10.1"
-  dropdown_search:
-    dependency: "direct main"
-    description:
-      name: dropdown_search
-      sha256: "55106e8290acaa97ed15bea1fdad82c3cf0c248dd410e651f5a8ac6870f783ab"
-      url: "https://pub.dev"
-    source: hosted
-    version: "5.0.6"
-  email_validator:
-    dependency: "direct main"
-    description:
-      name: email_validator
-      sha256: e9a90f27ab2b915a27d7f9c2a7ddda5dd752d6942616ee83529b686fc086221b
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.1.17"
   equatable:
     dependency: "direct main"
     description:
@@ -353,30 +344,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.1.0+10"
-  firebase_auth:
-    dependency: "direct main"
-    description:
-      name: firebase_auth
-      sha256: "279b2773ff61afd9763202cb5582e2b995ee57419d826b9af6517302a59b672f"
-      url: "https://pub.dev"
-    source: hosted
-    version: "4.16.0"
-  firebase_auth_platform_interface:
-    dependency: transitive
-    description:
-      name: firebase_auth_platform_interface
-      sha256: "3c9cfaccb7549492edf5b0c67c6dd1c6727c7830891aa6727f2fb225f0226626"
-      url: "https://pub.dev"
-    source: hosted
-    version: "7.0.9"
-  firebase_auth_web:
-    dependency: transitive
-    description:
-      name: firebase_auth_web
-      sha256: c7b1379ccef7abf4b6816eede67a868c44142198e42350f51c01d8fc03f95a7d
-      url: "https://pub.dev"
-    source: hosted
-    version: "5.8.13"
   firebase_core:
     dependency: "direct main"
     description:
@@ -486,14 +453,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.1"
-  flutter_svg:
-    dependency: "direct main"
-    description:
-      name: flutter_svg
-      sha256: d39e7f95621fc84376bc0f7d504f05c3a41488c562f4a8ad410569127507402c
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.9"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -537,7 +496,7 @@ packages:
     source: hosted
     version: "13.1.0"
   google_mobile_ads:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: google_mobile_ads
       sha256: d2ef5ec1e1f31137fc241bdeab3037c31062d387dd221fd884fb1160444c788b
@@ -696,14 +655,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.8.3"
-  path_parsing:
-    dependency: transitive
-    description:
-      name: path_parsing
-      sha256: e3e67b1629e6f7e8100b367d3db6ba6af4b1f0bb80f64db18ef1fbabd2fa9ccf
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.1"
   path_provider:
     dependency: transitive
     description:
@@ -1069,30 +1020,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.2.2"
-  vector_graphics:
-    dependency: transitive
-    description:
-      name: vector_graphics
-      sha256: "0f0c746dd2d6254a0057218ff980fc7f5670fd0fcf5e4db38a490d31eed4ad43"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.1.9+1"
-  vector_graphics_codec:
-    dependency: transitive
-    description:
-      name: vector_graphics_codec
-      sha256: "0edf6d630d1bfd5589114138ed8fada3234deacc37966bec033d3047c29248b7"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.1.9+1"
-  vector_graphics_compiler:
-    dependency: transitive
-    description:
-      name: vector_graphics_compiler
-      sha256: d24333727332d9bd20990f1483af4e09abdb9b1fc7c3db940b56ab5c42790c26
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.1.9+1"
   vector_math:
     dependency: transitive
     description:

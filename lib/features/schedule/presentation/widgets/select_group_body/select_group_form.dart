@@ -1,12 +1,10 @@
 import 'package:bntu_schedule/core/router/routes_list.dart';
-import 'package:bntu_schedule/core/widgets/widgets.dart'
-    show CustomButton, CustomSnackBarViewer;
 import 'package:bntu_schedule/features/schedule/presentation/bloc/group_bloc.dart';
+import 'package:custom_widgets/widgets.dart'
+    show CustomButton, CustomSnackBarViewer, CustomTextField;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-
-import './select_group_text_field.dart';
 
 class SelectGroupForm extends StatefulWidget {
   const SelectGroupForm({super.key});
@@ -40,7 +38,7 @@ class _SelectGroupFormState extends State<SelectGroupForm> {
             CustomSnackBarViewer.showSnackBar(
               context: context,
               text: state.message,
-              isError: true,
+              error: true,
             );
           }
         },
@@ -52,7 +50,9 @@ class _SelectGroupFormState extends State<SelectGroupForm> {
           ),
           child: Column(
             children: <Widget>[
-              SelectGroupTextField(
+              CustomTextField(
+                hintText: 'Введите номер группы',
+                inputType: TextInputType.number,
                 controller: _controller,
               ),
               const SizedBox(
@@ -60,7 +60,7 @@ class _SelectGroupFormState extends State<SelectGroupForm> {
               ),
               CustomButton(
                 text: 'Выбрать',
-                onPress: () async {
+                onPressed: () async {
                   if (_formKey.currentState!.validate()) {
                     context
                         .read<GroupBloc>()

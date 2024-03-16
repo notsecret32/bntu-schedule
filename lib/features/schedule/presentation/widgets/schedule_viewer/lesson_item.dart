@@ -1,5 +1,5 @@
-import 'package:bntu_schedule/core/widgets/custom_container.dart';
 import 'package:bntu_schedule/features/schedule/domain/entities/lesson_entity.dart';
+import 'package:custom_widgets/widgets.dart' show CustomContainer;
 import 'package:flutter/material.dart';
 
 class LessonItem extends StatelessWidget {
