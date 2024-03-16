@@ -5,7 +5,6 @@ extension CustomTextTheme on TextTheme {
         fontFamily: 'SFProDisplay',
         fontWeight: FontWeight.w900,
         fontSize: 36,
-        height: 43,
         letterSpacing: 0.38,
       );
 
@@ -13,7 +12,6 @@ extension CustomTextTheme on TextTheme {
         fontFamily: 'SFProDisplay',
         fontWeight: FontWeight.w700,
         fontSize: 27,
-        height: 32,
         letterSpacing: 0.35,
       );
 
@@ -21,7 +19,6 @@ extension CustomTextTheme on TextTheme {
         fontFamily: 'SFProDisplay',
         fontWeight: FontWeight.w700,
         fontSize: 22,
-        height: 28,
         letterSpacing: 0.35,
       );
 
@@ -29,7 +26,6 @@ extension CustomTextTheme on TextTheme {
         fontFamily: 'SFProDisplay',
         fontWeight: FontWeight.w600,
         fontSize: 22,
-        height: 28,
         letterSpacing: 0.35,
       );
 
@@ -37,7 +33,6 @@ extension CustomTextTheme on TextTheme {
         fontFamily: 'SFProText',
         fontWeight: FontWeight.w600,
         fontSize: 17,
-        height: 24,
         letterSpacing: -0.41,
       );
 
@@ -45,7 +40,6 @@ extension CustomTextTheme on TextTheme {
         fontFamily: 'SFProText',
         fontWeight: FontWeight.w600,
         fontSize: 17,
-        height: 24,
         letterSpacing: -0.41,
       );
 
@@ -53,7 +47,6 @@ extension CustomTextTheme on TextTheme {
         fontFamily: 'SFProText',
         fontWeight: FontWeight.w400,
         fontSize: 17,
-        height: 24,
         letterSpacing: -0.41,
       );
 
@@ -61,7 +54,6 @@ extension CustomTextTheme on TextTheme {
         fontFamily: 'SFProText',
         fontWeight: FontWeight.w600,
         fontSize: 16,
-        height: 22,
         letterSpacing: -0.32,
       );
 
@@ -69,7 +61,6 @@ extension CustomTextTheme on TextTheme {
         fontFamily: 'SFProText',
         fontWeight: FontWeight.w400,
         fontSize: 16,
-        height: 22,
         letterSpacing: -0.32,
       );
 
@@ -77,7 +68,6 @@ extension CustomTextTheme on TextTheme {
         fontFamily: 'SFProText',
         fontWeight: FontWeight.w600,
         fontSize: 15,
-        height: 20,
         letterSpacing: -0.24,
       );
 
@@ -85,7 +75,6 @@ extension CustomTextTheme on TextTheme {
         fontFamily: 'SFProText',
         fontWeight: FontWeight.w400,
         fontSize: 15,
-        height: 20,
         letterSpacing: -0.24,
       );
 
@@ -93,7 +82,6 @@ extension CustomTextTheme on TextTheme {
         fontFamily: 'SFProText',
         fontWeight: FontWeight.w600,
         fontSize: 13,
-        height: 18,
         letterSpacing: -0.08,
       );
 
@@ -101,7 +89,6 @@ extension CustomTextTheme on TextTheme {
         fontFamily: 'SFProText',
         fontWeight: FontWeight.w400,
         fontSize: 13,
-        height: 18,
         letterSpacing: -0.08,
       );
 
@@ -109,7 +96,6 @@ extension CustomTextTheme on TextTheme {
         fontFamily: 'SFProText',
         fontWeight: FontWeight.w600,
         fontSize: 12,
-        height: 16,
         letterSpacing: 0,
       );
 
@@ -117,7 +103,6 @@ extension CustomTextTheme on TextTheme {
         fontFamily: 'SFProText',
         fontWeight: FontWeight.w400,
         fontSize: 12,
-        height: 16,
         letterSpacing: 0,
       );
 
@@ -125,7 +110,6 @@ extension CustomTextTheme on TextTheme {
         fontFamily: 'SFProText',
         fontWeight: FontWeight.w600,
         fontSize: 11,
-        height: 14,
         letterSpacing: 0.06,
       );
 
@@ -133,7 +117,6 @@ extension CustomTextTheme on TextTheme {
         fontFamily: 'SFProText',
         fontWeight: FontWeight.w400,
         fontSize: 11,
-        height: 14,
         letterSpacing: 0.07,
       );
 
@@ -141,7 +124,6 @@ extension CustomTextTheme on TextTheme {
         fontFamily: 'SFProText',
         fontWeight: FontWeight.w500,
         fontSize: 10,
-        height: 12,
         letterSpacing: 0.12,
       );
 }

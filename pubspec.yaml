@@ -27,6 +27,7 @@ dependencies:
   firebase_analytics: ^10.8.5
   firebase_performance: ^0.9.3+13
   flutter_platform_widgets: ^6.1.0
+  smooth_page_indicator: ^1.1.0
 
 dev_dependencies:
   flutter_test:
@@ -61,4 +62,5 @@ flutter:
         - asset: assets/fonts/SF-Pro-Text-Semibold.otf
           style: normal
   assets:
+    - assets/images/
     - .env
