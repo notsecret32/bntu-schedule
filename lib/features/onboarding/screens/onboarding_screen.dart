@@ -6,7 +6,7 @@ import '../../../core/theme/colors/graphic_colors.dart';
 import '../../../core/theme/colors/light_colors.dart';
 import '../../../core/theme/text_theme.dart';
 import '../widgets/board.dart';
-import '../widgets/login_modal.dart';
+import '../widgets/select_group_modal.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -80,7 +80,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               onPressed: () async => showPlatformModalSheet(
                 material: MaterialModalSheetData(isScrollControlled: true),
                 context: context,
-                builder: (_) => const LoginModal(),
+                builder: (_) => const SelectGroupModal(),
               ),
               child: const Text(
                 'Войти',

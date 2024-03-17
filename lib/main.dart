@@ -2,9 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'core/firebase/firebase.dart';
 import 'core/logging/logging.dart';
+import 'core/providers/shared_preferences_provider.dart';
 import 'core/router/router.dart';
 import 'core/theme/cupertino/cupertino_theme.dart';
 import 'core/theme/material/material_theme.dart';
@@ -29,7 +32,16 @@ Future<void> main() async {
   await initializeLoggers();
 
   // Run the app
-  runApp(const BntuScheduleApp());
+  runApp(
+    ProviderScope(
+      overrides: <Override>[
+        sharedPreferencesProvider.overrideWithValue(
+          await SharedPreferences.getInstance(),
+        )
+      ],
+      child: const BntuScheduleApp(),
+    ),
+  );
 }
 
 /// The main application.
