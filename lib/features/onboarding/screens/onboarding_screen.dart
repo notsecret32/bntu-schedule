@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
-import 'package:go_router/go_router.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../../core/theme/colors/graphic_colors.dart';
 import '../../../core/theme/colors/light_colors.dart';
 import '../../../core/theme/text_theme.dart';
 import '../widgets/board.dart';
+import '../widgets/login_modal.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -77,12 +77,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             right: 20,
             bottom: 54,
             child: PlatformElevatedButton(
-              onPressed: () async => context.pushNamed('login'),
-              child: Text(
+              onPressed: () async => showPlatformModalSheet(
+                material: MaterialModalSheetData(isScrollControlled: true),
+                context: context,
+                builder: (_) => const LoginModal(),
+              ),
+              child: const Text(
                 'Войти',
-                style: textTheme.headline.copyWith(
-                  color: lightBackgroundPrimary,
-                ),
               ),
             ),
           )
