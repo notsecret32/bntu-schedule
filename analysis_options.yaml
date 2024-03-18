@@ -27,10 +27,13 @@ analyzer:
     deprecated_member_use_from_same_package: ignore
   exclude:
     - 'bin/cache/**'
-      # Ignore protoc generated files
     - 'dev/conductor/lib/proto/*'
   plugins:
     - custom_lint
+
+custom_lint:
+  rules:
+    - avoid_manual_providers_as_generated_provider_dependency: false
 
 linter:
   rules:
