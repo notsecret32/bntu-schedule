@@ -32,7 +32,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 pathToImage: 'assets/images/onboarding-1.png',
                 title: 'Привет! Это приложение БНТУ Расписание',
                 description:
-                    'Просматривай расписание актуальное занятий удобно',
+                    'Просматривай актуальное расписание быстро и удобно',
                 textTheme: textTheme,
               ),
               _createBoard(
@@ -45,8 +45,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               _createBoard(
                 pathToImage: 'assets/images/onboarding-3.png',
                 title: 'Уведомления о начале занятий',
-                description:
-                    'Вы можете получать уведомления о начале ваших пар',
+                description: 'Получай уведомления о начале занятий',
                 textTheme: textTheme,
               ),
               _createBoard(
