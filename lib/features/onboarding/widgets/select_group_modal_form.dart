@@ -53,7 +53,7 @@ class _SelectGroupFormState extends ConsumerState<SelectGroupModalForm> {
 
   String? _validateTextFormField(String? value) {
     if (value!.isEmpty) {
-      return null;
+      return 'Это поле не может быть пустым.';
     }
 
     if (!RegExp(r'^[0-9]+$').hasMatch(value)) {
@@ -61,7 +61,7 @@ class _SelectGroupFormState extends ConsumerState<SelectGroupModalForm> {
     }
 
     if (value.length < 8) {
-      return 'Номер группы состоит из 8 цифр';
+      return 'Номер группы состоит из 8 цифр.';
     }
 
     return null;
